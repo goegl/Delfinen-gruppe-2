@@ -9,4 +9,9 @@ public class CompetitiveMember extends Member{
         super(name,phoneNumber, address, dateOfBirth, memberID, activeStatus);
         this.disciplines = new ArrayList<>();
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + disciplines.toString();
+    }
 }
