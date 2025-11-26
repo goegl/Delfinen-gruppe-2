@@ -2,10 +2,10 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class MemberFee {
-    private static double juniorFee;
-    private static double seniorFee;
-    private static double retireeFee;
-    private static double inactiveFee;
+    private double juniorFee;
+    private double seniorFee;
+    private double retireeFee;
+    private double inactiveFee;
 
     public MemberFee(){
         this.inactiveFee = 500;
@@ -14,7 +14,7 @@ public class MemberFee {
         this.retireeFee = seniorFee/100*75;
     }
 
-    public static double calculateFee(boolean isActive, LocalDate dateOfBirth){
+    public double calculateFee(boolean isActive, LocalDate dateOfBirth){
         Period age = Period.between(dateOfBirth, LocalDate.now());
             if(isActive != true){
                 return inactiveFee;

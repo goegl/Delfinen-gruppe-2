@@ -10,15 +10,29 @@ public class Member {
     double memberFee;
     private final LocalDate membershipStart;
 
-    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, int memberID, boolean activeStatus, double memberFee){
+    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, int memberID, boolean activeStatus){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.memberID = memberID;
         this.address = address;
         this.activeStatus = activeStatus;
-        this.memberFee = MemberFee.calculateFee(activeStatus, dateOfBirth);
+        this.memberFee = 0;
         this.membershipStart = LocalDate.now();
+        setMemberFee(memberFee);
+    }
+
+    public boolean isActiveStatus() {
+        return activeStatus;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setMemberFee(double memberFee) {
+        MemberFee memberFee1 = new MemberFee();
+        this.memberFee = memberFee1.calculateFee(isActiveStatus(), getDateOfBirth());
     }
 
     public double getMemberFee() {
