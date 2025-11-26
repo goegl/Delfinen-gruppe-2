@@ -17,9 +17,16 @@ public class Member {
         this.memberID = memberID;
         this.address = address;
         this.activeStatus = activeStatus;
-        this.memberFee = MemberFee.getFee(dateOfBirth);
+        this.memberFee = MemberFee.calculateFee(activeStatus, dateOfBirth);
         this.membershipStart = LocalDate.now();
     }
 
+    public double getMemberFee() {
+        return memberFee;
+    }
 
+    @Override
+    public String toString() {
+        return String.valueOf(getMemberFee());
+    }
 }
