@@ -19,7 +19,6 @@ public class Member {
         this.activeStatus = activeStatus;
         this.memberFee = 0;
         this.membershipStart = LocalDate.now();
-        setMemberFee(memberFee);
     }
 
     public boolean isActiveStatus() {
@@ -30,7 +29,7 @@ public class Member {
         return dateOfBirth;
     }
 
-    public void setMemberFee(double memberFee) {
+    public void setMemberFee() {
         MemberFee memberFee1 = new MemberFee();
         this.memberFee = memberFee1.calculateFee(isActiveStatus(), getDateOfBirth());
     }
