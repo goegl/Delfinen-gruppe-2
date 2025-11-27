@@ -19,6 +19,7 @@ public class Member {
         this.activeStatus = activeStatus;
         this.memberFee = 0;
         this.membershipStart = LocalDate.now();
+        setMemberFee();
     }
 
     public boolean isActiveStatus() {
