@@ -6,6 +6,7 @@ public class Main {
         CompetitiveMember emil = new CompetitiveMember("Emil", "87654321", "Gaden", LocalDate.of(1920, 9, 5), 2, true);
         emil.disciplines.add(Disciplines.CRAWL);
         emil.disciplines.add(Disciplines.BUTTERFLY);
+        emil.disciplines.add(Disciplines.BREASTSTROKE);
         System.out.println(andreas + "\n" + emil);
         Result result = new Result(emil, 17.2, LocalDate.now());
     }
