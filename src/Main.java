@@ -7,6 +7,6 @@ public class Main {
         emil.disciplines.add(Disciplines.CRAWL);
         emil.disciplines.add(Disciplines.BUTTERFLY);
         System.out.println(andreas + "\n" + emil);
-        Result result = new Result(emil, 17.2, LocalDate.now());
+        Result result = new Result(emil, Disciplines.CRAWL, 17.2, LocalDate.now());
     }
 }
