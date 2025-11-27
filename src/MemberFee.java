@@ -13,7 +13,7 @@ public class MemberFee {
         this.seniorFee = 1600;
         this.retireeFee = seniorFee/100*75;
     }
-
+//Calculate members fees for different age groups
     public double calculateFee(boolean isActive, LocalDate dateOfBirth){
         Period age = Period.between(dateOfBirth, LocalDate.now());
             if(isActive != true){
