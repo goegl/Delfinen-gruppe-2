@@ -8,6 +8,5 @@ public class Main {
         emil.disciplines.add(Disciplines.BUTTERFLY);
         System.out.println(andreas + "\n" + emil);
         Result result = new Result(emil, 17.2, LocalDate.now());
-        Result result1 = new Result(andreas, 15.3, LocalDate.now(), "Poseidon Cup");
     }
 }

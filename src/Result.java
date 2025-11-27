@@ -1,18 +1,18 @@
 import java.time.LocalDate;
 
 public class Result {
-    Member member;
+    CompetitiveMember member;
     double resultTime;
     LocalDate date;
     String competitionName;
 
-    public Result(Member member, double resultTime, LocalDate date){
+    public Result(CompetitiveMember member, double resultTime, LocalDate date){
         this.member = member;
         this.resultTime = resultTime;
         this.date = date;
     }
 
-    public Result(Member member, double resultTime, LocalDate date, String competitionName){
+    public Result(CompetitiveMember member, double resultTime, LocalDate date, String competitionName){
         this.member = member;
         this.resultTime = resultTime;
         this.date = date;
