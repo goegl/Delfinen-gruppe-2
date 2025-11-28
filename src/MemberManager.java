@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,10 @@ public class MemberManager {
     public MemberManager() {
         this.members = new ArrayList<>();
     }
-    public void createMember(Member member){
-
+    public void createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, int memberID, boolean activeStatus){
+        Member member = new Member(name, phoneNumber, address, dateOfBirth, memberID, activeStatus);
+        member.setMemberFee();
+        members.add(member);
+        System.out.println(member);
     }
 }
