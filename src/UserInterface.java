@@ -24,11 +24,11 @@ public class UserInterface {
                 case 1:
                     System.out.println("Indtast Navn");
                     String name = inputSC.nextLine();
-                    System.out.println("Intast nummer");
+                    System.out.println("Indtast nummer");
                     String phone = inputSC.nextLine();
-                    System.out.println("Intast adresse");
+                    System.out.println("Indtast adresse");
                     String address = inputSC.nextLine();
-                    System.out.println("Intast fødselsdag");
+                    System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = true;
@@ -39,6 +39,11 @@ public class UserInterface {
                     if (status == 2) {
                         activeStatus = false;
                     }
+                    System.out.println("Er du konkurrence svømmer?");
+
+
+
+
 
 
 
@@ -51,7 +56,7 @@ public class UserInterface {
             }
         }
     }
-
+//Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
     public LocalDate inputDateOfBirth(Scanner sc) {
         System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
         LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
