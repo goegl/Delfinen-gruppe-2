@@ -29,25 +29,13 @@ public class UserInterface {
                     String address = inputSC.nextLine();
                     //System.out.println("Intast fødselsdag");
                     System.out.println("Aktivt medlemsskab?");
-                    boolean activeStatus = false;
+                    boolean activeStatus = true;
                     int status = inputSC.nextInt();
-//                    if (status == 1) {
-//                        activeStatus = true;
-//                        inputSC.next();
-//                    }
-//                    if (status == 2) {
-//                        activeStatus = false;
-//                        inputSC.next();
-//                    } else System.out.println("Indtast 1 eller 2");
-                    switch(status){
-                        case 1:
-                            activeStatus = true;
-
-                        case 2:
-                            activeStatus = false;
-
-                        default:
-                            break;
+                    if (status == 1) {
+                        activeStatus = true;
+                    }
+                    if (status == 2) {
+                        activeStatus = false;
                     }
 
 
