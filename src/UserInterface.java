@@ -1,10 +1,11 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UserInterface {
     private Scanner inputSC;
     MemberManager memberList;
 
-    public UserInterface(Scanner inputSC) {
+    public UserInterface() {
         this.inputSC = new Scanner(System.in);
         this.memberList = new MemberManager();
     }
@@ -25,14 +26,38 @@ public class UserInterface {
                     System.out.println("Intast nummer");
                     String phone = inputSC.nextLine();
                     System.out.println("Intast adresse");
-                    String adress = inputSC.nextLine();
+                    String address = inputSC.nextLine();
                     //System.out.println("Intast fødselsdag");
                     System.out.println("Aktivt medlemsskab?");
+                    boolean activeStatus = false;
+                    int status = inputSC.nextInt();
+//                    if (status == 1) {
+//                        activeStatus = true;
+//                        inputSC.next();
+//                    }
+//                    if (status == 2) {
+//                        activeStatus = false;
+//                        inputSC.next();
+//                    } else System.out.println("Indtast 1 eller 2");
+                    switch(status){
+                        case 1:
+                            activeStatus = true;
 
-                    boolean activeStatus;
-                    if(inputSC.nextInt() == 1){
-                        activeStatus = true;
-                    } else activeStatus = false;
+                        case 2:
+                            activeStatus = false;
+
+                        default:
+                            break;
+                    }
+
+
+                    LocalDate dateOfBirth = LocalDate.of(1999, 9, 9);
+
+                    int iD = 1;
+
+
+                    memberList.createMember(name, phone, address, dateOfBirth, iD, activeStatus);
+                    System.out.println(memberList.toString());
 
             }
         }

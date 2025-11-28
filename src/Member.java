@@ -40,6 +40,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return String.valueOf(getMemberFee()) + "KR " + " " + name + " ";
+        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
     }
 }
