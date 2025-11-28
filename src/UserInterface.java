@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -27,7 +28,8 @@ public class UserInterface {
                     String phone = inputSC.nextLine();
                     System.out.println("Intast adresse");
                     String address = inputSC.nextLine();
-                    //System.out.println("Intast fødselsdag");
+                    System.out.println("Intast fødselsdag");
+                    LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = true;
                     int status = inputSC.nextInt();
@@ -39,7 +41,6 @@ public class UserInterface {
                     }
 
 
-                    LocalDate dateOfBirth = LocalDate.of(1999, 9, 9);
 
                     int iD = 1;
 
@@ -50,4 +51,15 @@ public class UserInterface {
             }
         }
     }
+
+    public LocalDate inputDateOfBirth(Scanner sc) {
+        System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
+        LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        String formattedString = dateOfBirth.format(formatter);
+        System.out.println(formattedString);
+        return dateOfBirth;
+
+    }
+
 }

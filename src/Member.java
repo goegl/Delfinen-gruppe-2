@@ -38,6 +38,8 @@ public class Member {
         return memberFee;
     }
 
+
+
     @Override
     public String toString() {
         return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
