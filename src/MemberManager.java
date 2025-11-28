@@ -14,4 +14,15 @@ public class MemberManager {
         members.add(member);
         System.out.println(member);
     }
+    public String printMemberList(){
+        for(Member member : members){
+            System.out.println(member);
+        }
+        return "";
+    }
+
+    @Override
+    public String toString() {
+        return printMemberList();
+    }
 }
