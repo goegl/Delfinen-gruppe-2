@@ -31,40 +31,39 @@ public class UserInterface {
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
-                    boolean activeStatus = true;
-                    int status = inputSC.nextInt();
-                    if (status == 1) {
-                        activeStatus = true;
+                    //Add While loop
+                        boolean activeStatus;
+                        int status = inputSC.nextInt();
+                        if (status == 1) {
+                            activeStatus = true;
+                        } else if (status == 2) {
+                            activeStatus = false;
+                        } else {
+                            activeStatus = false;
+                        }
+
+                        System.out.println("Er du konkurrence svømmer?");
+
+
+                        int iD = 1;
+
+
+                        memberList.createMember(name, phone, address, dateOfBirth, iD, activeStatus);
+                        System.out.println(memberList.toString());
+
                     }
-                    if (status == 2) {
-                        activeStatus = false;
-                    }
-                    System.out.println("Er du konkurrence svømmer?");
-
-
-
-
-
-
-
-                    int iD = 1;
-
-
-                    memberList.createMember(name, phone, address, dateOfBirth, iD, activeStatus);
-                    System.out.println(memberList.toString());
-
             }
         }
-    }
-//Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
-    public LocalDate inputDateOfBirth(Scanner sc) {
-        System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
-        LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        String formattedString = dateOfBirth.format(formatter);
-        System.out.println(formattedString);
-        return dateOfBirth;
+
+        //Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
+        public LocalDate inputDateOfBirth (Scanner sc){
+            System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
+            LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            String formattedString = dateOfBirth.format(formatter);
+            System.out.println(formattedString);
+            return dateOfBirth;
+
+        }
 
     }
-
-}
