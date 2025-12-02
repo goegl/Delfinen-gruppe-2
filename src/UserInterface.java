@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class UserInterface {
     private Scanner inputSC;
 
+
     public UserInterface() {
         this.inputSC = new Scanner(System.in);
     }
 
-    public void createUI(MemberManager memberList) {
+    public void createUI(MemberManager memberList, FileManager fileManager) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
@@ -33,9 +34,8 @@ public class UserInterface {
 
                     System.out.println("Er du konkurrence svømmer?");
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus);
-
                     System.out.println(memberList.toString());
-
+                    fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
             }
         }
     }

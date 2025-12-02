@@ -3,6 +3,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         MemberManager memberManager = new MemberManager();
+        FileManager fileManager = new FileManager();
+
         //Add members
         //Member andreas = new Member("Andreas", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), 1, true);
        // CompetitiveMember emil = new CompetitiveMember("Emil", "87654321", "Gaden", LocalDate.of(1920, 9, 5), 2, true);
@@ -19,7 +21,7 @@ public class Main {
 //        mm.createMember("Anders And", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), true);
 
     UserInterface userInterface = new UserInterface();
-        userInterface.createUI(memberManager);
+        userInterface.createUI(memberManager, fileManager);
 
     }
 }
