@@ -32,12 +32,27 @@ public class UserInterface {
                     boolean activeStatus = isActiveStatus();
 
                     System.out.println("Er du konkurrence svømmer?");
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus);
 
-
-                    memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
                     System.out.println(memberList.toString());
 
             }
+        }
+    }
+
+    private void typeOfMember(MemberManager memberList, String name, String phone, String address, LocalDate dateOfBirth, boolean activeStatus) {
+        while (true) {
+            int status = inputSC.nextInt();
+            if (status == 1) {
+                memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+                break;
+            } else if (status == 2) {
+                memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+                break;
+            } else {
+                System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist");
+            }
+            inputSC.nextLine();
         }
     }
 
