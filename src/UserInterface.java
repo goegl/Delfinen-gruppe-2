@@ -31,20 +31,9 @@ public class UserInterface {
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
+                    boolean activeStatus = isActiveStatus();
 
-                    //Add While loop
-
-                        boolean activeStatus;
-                        int status = inputSC.nextInt();
-                        if (status == 1) {
-                            activeStatus = true;
-                        } else if (status == 2) {
-                            activeStatus = false;
-                        } else {
-                            activeStatus = false;
-                        }
-
-                        System.out.println("Er du konkurrence svømmer?");
+                    System.out.println("Er du konkurrence svømmer?");
 
 
                         int iD = 1;
@@ -56,8 +45,27 @@ public class UserInterface {
                     }
             }
         }
+//Added method to chose activeStatus with input validation
+    private boolean isActiveStatus() {
+        boolean activeStatus = false;
+        while (true) {
+            int status = inputSC.nextInt();
 
-        //Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
+            if (status == 1) {
+                activeStatus = true;
+                break;
+            } else if (status == 2) {
+                activeStatus = false;
+                break;
+            } else {
+                System.out.println("Ugyldigt valg. Prøv igen: (1 = Aktiv, 2 = Passiv)");
+            }
+        }
+        inputSC.nextLine();
+        return activeStatus;
+    }
+
+    //Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
         public LocalDate inputDateOfBirth (Scanner sc){
             System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
             LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
