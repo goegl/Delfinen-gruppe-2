@@ -22,7 +22,7 @@ public class UserInterface {
             inputSC.nextLine();
             switch (number) {
                 case 1:
-                    System.out.println("Indtast Navn");
+                    System.out.println("Indtast navn");
                     String name = inputSC.nextLine();
                     System.out.println("Indtast nummer");
                     String phone = inputSC.nextLine();
@@ -31,7 +31,9 @@ public class UserInterface {
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
+
                     //Add While loop
+
                         boolean activeStatus;
                         int status = inputSC.nextInt();
                         if (status == 1) {
