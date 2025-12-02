@@ -36,16 +36,14 @@ public class UserInterface {
                     System.out.println("Er du konkurrence svømmer?");
 
 
-                        int iD = 1;
+                    memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+                    System.out.println(memberList.toString());
 
-
-                        memberList.createMember(name, phone, address, dateOfBirth, iD, activeStatus);
-                        System.out.println(memberList.toString());
-
-                    }
             }
         }
-//Added method to chose activeStatus with input validation
+    }
+
+    //Added method to chose activeStatus with input validation
     private boolean isActiveStatus() {
         boolean activeStatus = false;
         while (true) {
@@ -66,14 +64,14 @@ public class UserInterface {
     }
 
     //Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
-        public LocalDate inputDateOfBirth (Scanner sc){
-            System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
-            LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-            String formattedString = dateOfBirth.format(formatter);
-            System.out.println(formattedString);
-            return dateOfBirth;
-
-        }
+    public LocalDate inputDateOfBirth(Scanner sc) {
+        System.out.print("Skriv fødselsdato i følgende format: ÅR-MÅNED-DAG: ");
+        LocalDate dateOfBirth = LocalDate.of(sc.nextInt(), sc.nextInt(), sc.nextInt());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        String formattedString = dateOfBirth.format(formatter);
+        System.out.println(formattedString);
+        return dateOfBirth;
 
     }
+
+}

@@ -21,6 +21,10 @@ public class Member {
         this.membershipStart = LocalDate.now();
     }
 
+    public int getMemberID() {
+        return memberID;
+    }
+
     public boolean isActiveStatus() {
         return activeStatus;
     }
@@ -43,6 +47,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
+        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus + "MedlemsID" + getMemberID();
     }
 }
