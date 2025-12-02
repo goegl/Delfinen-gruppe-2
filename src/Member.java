@@ -21,6 +21,22 @@ public class Member {
         this.membershipStart = LocalDate.now();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public LocalDate getMembershipStart() {
+        return membershipStart;
+    }
+
     public int getMemberID() {
         return memberID;
     }
