@@ -4,14 +4,12 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Scanner inputSC;
-    MemberManager memberList;
 
     public UserInterface() {
         this.inputSC = new Scanner(System.in);
-        this.memberList = new MemberManager();
     }
 
-    public void createUI() {
+    public void createUI(MemberManager memberList) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +

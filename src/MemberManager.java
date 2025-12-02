@@ -16,38 +16,22 @@ public class MemberManager {
         Member member = new Member(name, phoneNumber, address, dateOfBirth, nextID, activeStatus);
         member.setMemberFee();
         members.add(member);
-        setNextID(nextID++);
+        setNextID(nextID);
         System.out.println(member);
     }
 
     public void createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
         CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, nextID, activeStatus);
         competitiveMember.setMemberFee();
+        setNextID(nextID);
         members.add(competitiveMember);
-        setNextID(nextID++);
 
     }
 
     public void setNextID(int nextID) {
-        this.nextID = nextID;
+        this.nextID = nextID + 1;
     }
 
-    public int calculateMemberID(){
-        int memberID;
-        memberID = nextID++;
-        setNextID(memberID);
-        return memberID;
-    }
-
-//    public int calculateMemberID() {
-//        int newMemberID = 0;
-//        if (members != null) {
-//            newMemberID++;
-//        } else if (members.isEmpty()) {
-//            newMemberID = 1;
-//        }
-//        return newMemberID;
-//    }
 
     public String printMemberList() {
         for (Member member : members) {
