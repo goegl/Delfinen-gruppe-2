@@ -12,6 +12,7 @@ public class FileManager {
                 writer.append(member.getPhoneNumber()).append(" ,");
                 writer.append(member.getAddress()).append(" ,");
                 writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
+                writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(" ,");
             }
             writer.close();
             System.out.println("CSV fil skrevet til" + filepath);
