@@ -13,7 +13,7 @@ public class FileManager {
                 writer.append(member.getAddress()).append(",");
             }
             writer.close();
-            System.out.println("CVS fil skrevet til" + filepath);
+            System.out.println("CSV fil skrevet til" + filepath);
         } catch (IOException e){
             e.printStackTrace();
         }
