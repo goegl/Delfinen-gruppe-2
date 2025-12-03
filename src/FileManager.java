@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager {
@@ -24,7 +25,7 @@ public class FileManager {
             e.printStackTrace();
         }
     }
-    public void writeCompetitiveMembersToCSV(List<CompetitiveMember> members, String filepath){
+    public void writeCompetitiveMembersToCSV(List<Member> members, String filepath){
         try(FileWriter writer = new FileWriter(filepath, true)){
             writer.append("Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato, Dicipliner" + "\n");
             for(CompetitiveMember member : members){
@@ -36,7 +37,7 @@ public class FileManager {
                 writer.append(String.valueOf(member.getMemberID())).append(" ,");
                 writer.append(String.valueOf(member.getMemberFee())).append(" ,");
                 writer.append(member.membershipStartToString(member.getMembershipStart())).append(" ,");
-                writer.append((member.disiplinsToString())).append(" ,");
+                writer.append((member.disiplinsToString())).append(" , \n");
 
             }
             writer.close();
