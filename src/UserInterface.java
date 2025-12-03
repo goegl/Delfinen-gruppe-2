@@ -1,4 +1,3 @@
-import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -23,7 +22,7 @@ public class UserInterface {
             switch (number) {
                 case 1:
                     System.out.println("Indtast navn");
-                    String name = inputSC.nextLine();
+                    nameInputValidation(inputSC.nextLine());
                     System.out.println("Indtast nummer");
                     String phone = inputSC.nextLine();
                     System.out.println("Indtast adresse");
@@ -33,21 +32,38 @@ public class UserInterface {
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus,fileManager);
+                    typeOfMember(memberList, nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus, fileManager);
                     System.out.println(memberList.toString());
             }
         }
     }
 
-    private void typeOfMember(MemberManager memberList, String name, String phone, String address, LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
+    private String nameInputValidation(String input) {
+        while(true) {
+
+            if (input == null || input.trim().isEmpty()) {
+                throw new IllegalArgumentException("Indtast dit navn.");
+            }
+            if (!input.matches("^[A-Åa-å]")) {
+                throw new IllegalArgumentException("Et navn kan kun indeholde bogstaver");
+            }
+
+
+            return input;
+
+        }
+    }
+
+    private void typeOfMember(MemberManager memberList, String phone, String address, String s, LocalDate
+            dateOfBirth, boolean activeStatus, FileManager fileManager) {
         while (true) {
             int status = inputSC.nextInt();
             if (status == 1) {
-                memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
-                fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
+                memberList.createCompetitiveMember(nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus);
+                //fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else if (status == 2) {
-                memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+                memberList.createMember(nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus);
                 fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else {
@@ -87,5 +103,4 @@ public class UserInterface {
         return dateOfBirth;
 
     }
-
 }
