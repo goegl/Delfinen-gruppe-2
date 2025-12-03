@@ -1,3 +1,5 @@
 Name, PhoneNumber, Adress
 Hans,1234421,Name, PhoneNumber, Address
-mahad,3434343,fggf ,
+mahad,3434343,fggf ,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
+Hansa,12121212,Breden 1,Er Aktiv,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
+Hansa,12121212,Breden 1,Er Aktiv,bansa,456543242,Holtevej 3,Er Aktiv,
