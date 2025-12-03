@@ -20,20 +20,20 @@ public class UserInterface {
             int number = inputSC.nextInt();
             inputSC.nextLine();
             switch (number) {
-                case 1:
-                    System.out.println("Indtast navn");
-                    nameInputValidation(inputSC.nextLine());
-                    System.out.println("Indtast nummer");
-                    String phone = inputSC.nextLine();
-                    System.out.println("Indtast adresse");
-                    String address = inputSC.nextLine();
-                    System.out.println("Indtast fødselsdag");
-                    LocalDate dateOfBirth = inputDateOfBirth(inputSC);
-                    System.out.println("Aktivt medlemsskab?");
-                    boolean activeStatus = isActiveStatus();
-                    System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus, fileManager);
-                    System.out.println(memberList.toString());
+               case 1:
+                   System.out.println("Indtast navn");
+                   String name = nameInputValidation(inputSC.nextLine());
+                   System.out.println("Indtast nummer");
+                   String phone = inputSC.nextLine();
+                   System.out.println("Indtast adresse");
+                   String address = inputSC.nextLine();
+                   System.out.println("Indtast fødselsdag");
+                   LocalDate dateOfBirth = inputDateOfBirth(inputSC);
+                   System.out.println("Aktivt medlemsskab?");
+                   boolean activeStatus = isActiveStatus();
+                   System.out.println("Er du konkurrence svømmer?");
+                   typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
+                   System.out.println(memberList.toString());
             }
         }
     }
@@ -44,32 +44,34 @@ public class UserInterface {
             if (input == null || input.trim().isEmpty()) {
                 throw new IllegalArgumentException("Indtast dit navn.");
             }
-            if (!input.matches("^[A-Åa-å]")) {
+            if (!input.matches("^[A-Za-z]+$"))
                 throw new IllegalArgumentException("Et navn kan kun indeholde bogstaver");
+            return input;
             }
 
 
-            return input;
+
+
 
         }
-    }
+    
 
-    private void typeOfMember(MemberManager memberList, String phone, String address, String s, LocalDate
-            dateOfBirth, boolean activeStatus, FileManager fileManager) {
+    private void typeOfMember(MemberManager memberList, String name, String phone, String address,
+                LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
         while (true) {
             int status = inputSC.nextInt();
+            inputSC.nextLine();
             if (status == 1) {
-                memberList.createCompetitiveMember(nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus);
+                memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
                 //fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else if (status == 2) {
-                memberList.createMember(nameInputValidation(inputSC.nextLine()), phone, address, dateOfBirth, activeStatus);
+                memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
                 fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else {
-                System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist");
+                System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");
             }
-            inputSC.nextLine();
         }
     }
 
