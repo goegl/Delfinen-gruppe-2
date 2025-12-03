@@ -6,4 +6,8 @@ Hansa,12121212,Breden 1,Er Aktiv,bansa,456543242,Holtevej 3,Er Aktiv,Name, Phone
 mahad ,343434 ,gfgfg 2 th ,Er Aktiv ,1111-11-11 ,1 ,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
 mahad ,343434 ,gfgfg 2 th ,Er Aktiv ,1111-11-11 ,1 ,adnfes ,2324343 ,fgfg 2th ,Er Aktiv ,1211-12-12 ,2 ,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
 mahad ,122332 ,rzg 2th ,Er Aktiv ,2000-11-12 ,1 ,1600.0 ,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
-mahad ,23345678 ,rxg 2th ,Er Aktiv ,2000-12-12 ,1 ,1600.0 ,2025-12-03 ,
+mahad ,23345678 ,rxg 2th ,Er Aktiv ,2000-12-12 ,1 ,1600.0 ,2025-12-03 ,Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
+mahad ,23345678 ,rxg th ,Er Aktiv ,2000-12-12 ,1 ,1600.0 ,2025-12-03 , 
+Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato
+mahad ,23345678 ,rxg th ,Er Aktiv ,2000-12-12 ,1 ,1600.0 ,2025-12-03 , 
+mads ,12345678 ,tyrerf th ,Er Aktiv ,1999-11-11 ,2 ,1600.0 ,2025-12-03 , 

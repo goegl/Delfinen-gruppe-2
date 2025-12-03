@@ -15,7 +15,7 @@ public class FileManager {
                 writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(" ,");
                 writer.append(String.valueOf(member.getMemberID())).append(" ,");
                 writer.append(String.valueOf(member.getMemberFee())).append(" ,");
-                writer.append(member.membershipStartToString(member.getMembershipStart())).append(" ,");
+                writer.append(member.membershipStartToString(member.getMembershipStart())).append(" , \n");
 
             }
             writer.close();
