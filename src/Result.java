@@ -15,6 +15,7 @@ public class Result {
     }
 
     public Result(CompetitiveMember member, Disciplines discipline, double resultTime, LocalDate date, String competitionName){
+        //Lav klasse og tilføj placering i stævnet
         this.member = member;
         this.discipline = discipline;
         this.resultTime = resultTime;

@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Member {
+public class Member{
     private final String name;
     private final LocalDate dateOfBirth;
     private String phoneNumber;
@@ -41,7 +41,7 @@ public class Member {
         return memberID;
     }
 
-    public boolean isActiveStatus() {
+    public boolean getActiveStatus() {
         return activeStatus;
     }
 
@@ -57,7 +57,7 @@ public class Member {
 
     public void setMemberFee() {
         MemberFee memberFee1 = new MemberFee();
-        this.memberFee = memberFee1.calculateFee(isActiveStatus(), getDateOfBirth());
+        this.memberFee = memberFee1.calculateFee(getActiveStatus(), getDateOfBirth());
     }
 
     public double getMemberFee() {
