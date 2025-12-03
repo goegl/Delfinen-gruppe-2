@@ -5,7 +5,7 @@ import java.util.List;
 public class FileManager {
 
     public void writeMembersToCSV(List<Member> members, String filepath){
-        try(FileWriter writer = new FileWriter(filepath)){
+        try(FileWriter writer = new FileWriter(filepath, true)){
             writer.append("Name, PhoneNumber, Address"+ "\n");
             for(Member member : members){
                 writer.append(member.getName()).append(",");
