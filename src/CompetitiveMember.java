@@ -12,7 +12,7 @@ public class CompetitiveMember extends Member{
     public List<Disciplines> getDisciplines() {
         return disciplines;
     }
-    public String disiplinsToString(){
+    public String disciplinesToString(){
         for(Disciplines discipline : disciplines){
             String diciplineName = discipline.name();
             return diciplineName;
