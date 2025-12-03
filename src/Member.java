@@ -55,6 +55,10 @@ public class Member{
         return dateOfBirth;
     }
 
+    public String dateOfBirthToString(LocalDate dateOfBirth){
+        return dateOfBirth.toString();
+    }
+
     public void setMemberFee() {
         MemberFee memberFee1 = new MemberFee();
         this.memberFee = memberFee1.calculateFee(getActiveStatus(), getDateOfBirth());
