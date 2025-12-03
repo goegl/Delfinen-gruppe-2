@@ -31,7 +31,6 @@ public class UserInterface {
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
-
                     System.out.println("Er du konkurrence svømmer?");
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus);
                     System.out.println(memberList.toString());
