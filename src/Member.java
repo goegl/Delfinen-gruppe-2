@@ -36,6 +36,9 @@ public class Member{
     public LocalDate getMembershipStart() {
         return membershipStart;
     }
+    public String membershipStartToString(LocalDate membershipStart){
+        return membershipStart.toString();
+    }
 
     public int getMemberID() {
         return memberID;
