@@ -45,6 +45,12 @@ public class Member {
         return activeStatus;
     }
 
+    public String activeStatusToString(boolean activeStatus){
+        if (activeStatus == true){
+            return "Er Aktiv";
+        } else return "Er Inaktiv";
+    }
+
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
