@@ -9,9 +9,20 @@ public class CompetitiveMember extends Member{
         super(name,phoneNumber, address, dateOfBirth, memberID, activeStatus);
         this.disciplines = new ArrayList<>();
     }
+    public List<Disciplines> getDisciplines() {
+        return disciplines;
+    }
+    public String disiplinsToString(){
+        for(Disciplines discipline : disciplines){
+            String diciplineName = discipline.name();
+            return diciplineName;
+        }
+        return"";
+    }
 
     @Override
     public String toString() {
         return super.toString() + disciplines.toString();
     }
+
 }
