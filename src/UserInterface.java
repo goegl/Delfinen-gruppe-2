@@ -1,3 +1,4 @@
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -32,21 +33,22 @@ public class UserInterface {
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus);
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus,fileManager);
                     System.out.println(memberList.toString());
-                    fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
             }
         }
     }
 
-    private void typeOfMember(MemberManager memberList, String name, String phone, String address, LocalDate dateOfBirth, boolean activeStatus) {
+    private void typeOfMember(MemberManager memberList, String name, String phone, String address, LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
         while (true) {
             int status = inputSC.nextInt();
             if (status == 1) {
                 memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+                fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else if (status == 2) {
                 memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+                fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else {
                 System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist");
