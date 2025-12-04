@@ -46,6 +46,19 @@ public class MemberManager {
         return "";
     }
 
+    public String printJuniorCompLists(){
+        for(CompetitiveMember member : juniorCompMembers){
+            System.out.println(member);
+        }
+        return "";
+    }
+    public String printSeniorCompLists(){
+        for(CompetitiveMember member : seniorCompMembers){
+            System.out.println(member);
+        }
+        return "";
+    }
+
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
             if (age.getYears() < 18) {
