@@ -20,7 +20,7 @@ public class FileManager {
 
             }
             writer.close();
-            System.out.println("CSV fil skrevet til" + filepath);
+            System.out.println("CSV fil skrevet til " + filepath);
         } catch (IOException e) {
             e.printStackTrace();
         }
