@@ -1,14 +1,20 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class MemberManager {
     List<Member> members;
+    List<Member> juniorCompMembers;
+    List<Member> seniorCompMembers;
+
     private int nextID;
 
     public MemberManager() {
         this.members = new ArrayList<>();
+        this.juniorCompMembers = new ArrayList<>();
+        this.seniorCompMembers = new ArrayList<>();
         this.nextID = 1;
     }
 
@@ -38,6 +44,16 @@ public class MemberManager {
             System.out.println(member);
         }
         return "";
+    }
+
+    public void printJuniorCompList(LocalDate dateBirth) {
+        Period age = Period.between(dateBirth, LocalDate.now());
+        for (Member member : members) {
+            if (age.getYears() < 18 && member instanceof CompetitiveMember) {
+                juniorCompMembers.add(member);
+            }
+
+        }
     }
 
     @Override
