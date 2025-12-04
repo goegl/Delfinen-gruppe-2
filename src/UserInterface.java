@@ -20,41 +20,43 @@ public class UserInterface {
             int number = inputSC.nextInt();
             inputSC.nextLine();
             switch (number) {
-               case 1:
-                   System.out.println("Indtast navn");
-                   String name = nameInputValidation(inputSC.nextLine());
-                   System.out.println("Indtast nummer");
-                   String phone = inputSC.nextLine();
-                   System.out.println("Indtast adresse");
-                   String address = inputSC.nextLine();
-                   System.out.println("Indtast fødselsdag");
-                   LocalDate dateOfBirth = inputDateOfBirth(inputSC);
-                   System.out.println("Aktivt medlemsskab?");
-                   boolean activeStatus = isActiveStatus();
-                   System.out.println("Er du konkurrence svømmer?");
-                   typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
-                   System.out.println(memberList.toString());
+                case 1:
+                    System.out.println("Indtast navn");
+                    String name = nameInputValidation();
+                    System.out.println("Indtast nummer");
+                    String phone = inputSC.nextLine();
+                    System.out.println("Indtast adresse");
+                    String address = inputSC.next();
+                    System.out.println("Indtast fødselsdag");
+                    LocalDate dateOfBirth = inputDateOfBirth(inputSC);
+                    System.out.println("Aktivt medlemsskab?");
+                    boolean activeStatus = isActiveStatus();
+                    System.out.println("Er du konkurrence svømmer?");
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
+                    System.out.println(memberList.toString());
             }
         }
     }
 
-    private String nameInputValidation(String input) {
-        while(true) {
+    private String nameInputValidation() {
+        while (true) {
+            String input = inputSC.nextLine().trim();
 
-            if (input == null || input.trim().isEmpty()) {
-                throw new IllegalArgumentException("Indtast dit navn.");
+            if (input.isEmpty()) {
+                System.out.println("Prøv igen:");
+                continue;
             }
-            if (!input.matches("^[A-Za-z]+$"))
-                throw new IllegalArgumentException("Et navn kan kun indeholde bogstaver");
+
+            if (!input.matches("^[A-Za-z ]+$")) {
+                System.out.println("Kun bogstaver bliver accepteret. Prøv igen:");
+                continue;
+            }
+
             return input;
-            }
-
-
-
-
-
         }
-    
+    }
+
+
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
                 LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
