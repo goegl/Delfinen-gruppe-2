@@ -1,14 +1,19 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MemberManager {
     List<Member> members;
+    List<CompetitiveMember> juniorCompMembers;
+    List<CompetitiveMember> seniorCompMembers;
+
     private int nextID;
 
     public MemberManager() {
         this.members = new ArrayList<>();
+        this.juniorCompMembers = new ArrayList<>();
+        this.seniorCompMembers = new ArrayList<>();
         this.nextID = 1;
     }
 
@@ -25,6 +30,7 @@ public class MemberManager {
         competitiveMember.setMemberFee();
         setNextID(nextID);
         members.add(competitiveMember);
+        addToCompList(competitiveMember);
 
     }
 
@@ -38,6 +44,29 @@ public class MemberManager {
             System.out.println(member);
         }
         return "";
+    }
+
+    public String printJuniorCompLists(){
+        for(CompetitiveMember member : juniorCompMembers){
+            System.out.println(member);
+        }
+        return "";
+    }
+    public String printSeniorCompLists(){
+        for(CompetitiveMember member : seniorCompMembers){
+            System.out.println(member);
+        }
+        return "";
+    }
+
+    public void addToCompList(CompetitiveMember compMember) {
+        Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
+            if (age.getYears() < 18) {
+                juniorCompMembers.add(compMember);
+            } else if (age.getYears() <= 18) {
+                seniorCompMembers.add(compMember);
+            }
+
     }
 
     @Override
