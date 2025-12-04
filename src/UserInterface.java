@@ -24,7 +24,7 @@ public class UserInterface {
                     System.out.println("Indtast navn");
                     String name = nameInputValidation();
                     System.out.println("Indtast nummer");
-                    String phone = inputSC.nextLine();
+                    String phone = numberInputValidation();
                     System.out.println("Indtast adresse");
                     String address = addressInputValidation();
                     System.out.println("Indtast fødselsdag");
@@ -38,7 +38,8 @@ public class UserInterface {
             }
         }
     }
-//Method to only take String for name variable
+
+    //Method to only take String for name variable
     private String nameInputValidation() {
         while (true) {
             String input = inputSC.nextLine().trim();
@@ -56,6 +57,7 @@ public class UserInterface {
             return input;
         }
     }
+
     private String addressInputValidation() {
         while (true) {
             String input = inputSC.nextLine().trim();
@@ -74,10 +76,30 @@ public class UserInterface {
         }
     }
 
+    private String numberInputValidation() {
+        while (true) {
+            String input = inputSC.nextLine().trim();
+
+            if (!input.matches("\\d{8}")) {
+
+                {
+                    System.out.println("Prøv igen: Kun 8 cifre");
+                    continue;
+                }
+
+            }
+            if (!input.matches("^[0-9]+$")) {
+                System.out.println("Kun tal bliver accepteret. Prøv igen:");
+                continue;
+            }
+
+            return input;
+        }
+    }
 
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
-                LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
+                              LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
         while (true) {
             int status = inputSC.nextInt();
             inputSC.nextLine();
@@ -123,6 +145,6 @@ public class UserInterface {
         return dateOfBirth;
 
     }
-
-
 }
+
+
