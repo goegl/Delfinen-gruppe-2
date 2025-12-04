@@ -1,4 +1,3 @@
-import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -23,36 +22,58 @@ public class UserInterface {
             switch (number) {
                 case 1:
                     System.out.println("Indtast navn");
-                    String name = inputSC.nextLine();
+                    String name = nameInputValidation();
                     System.out.println("Indtast nummer");
                     String phone = inputSC.nextLine();
                     System.out.println("Indtast adresse");
-                    String address = inputSC.nextLine();
+                    String address = inputSC.next();
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus,fileManager);
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
                     System.out.println(memberList.toString());
                     fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
             }
         }
     }
 
-    private void typeOfMember(MemberManager memberList, String name, String phone, String address, LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
+    private String nameInputValidation() {
+        while (true) {
+            String input = inputSC.nextLine().trim();
+
+            if (input.isEmpty()) {
+                System.out.println("Prøv igen:");
+                continue;
+            }
+
+            if (!input.matches("^[A-Za-z ]+$")) {
+                System.out.println("Kun bogstaver bliver accepteret. Prøv igen:");
+                continue;
+            }
+
+            return input;
+        }
+    }
+
+
+
+    private void typeOfMember(MemberManager memberList, String name, String phone, String address,
+                LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
         while (true) {
             int status = inputSC.nextInt();
+            inputSC.nextLine();
             if (status == 1) {
                 memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+                //fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else if (status == 2) {
                 memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
                 break;
             } else {
-                System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist");
+                System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");
             }
-            inputSC.nextLine();
         }
     }
 
@@ -86,5 +107,4 @@ public class UserInterface {
         return dateOfBirth;
 
     }
-
 }
