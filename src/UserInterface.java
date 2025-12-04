@@ -26,7 +26,7 @@ public class UserInterface {
                     System.out.println("Indtast nummer");
                     String phone = inputSC.nextLine();
                     System.out.println("Indtast adresse");
-                    String address = inputSC.next();
+                    String address = addressInputValidation();
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
@@ -50,6 +50,23 @@ public class UserInterface {
 
             if (!input.matches("^[A-Za-z ]+$")) {
                 System.out.println("Kun bogstaver bliver accepteret. Prøv igen:");
+                continue;
+            }
+
+            return input;
+        }
+    }
+    private String addressInputValidation() {
+        while (true) {
+            String input = inputSC.nextLine().trim();
+
+            if (input.isEmpty()) {
+                System.out.println("Prøv igen:");
+                continue;
+            }
+
+            if (!input.matches("^[A-Za-z 0-9]+$")) {
+                System.out.println("Kun bogstaver og tal bliver accepteret. Prøv igen:");
                 continue;
             }
 
