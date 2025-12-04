@@ -38,7 +38,7 @@ public class UserInterface {
             }
         }
     }
-
+//Method to only take String for name variable
     private String nameInputValidation() {
         while (true) {
             String input = inputSC.nextLine().trim();
@@ -66,7 +66,6 @@ public class UserInterface {
             inputSC.nextLine();
             if (status == 1) {
                 memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
-                //fileManager.writeCompetitiveMembersToCSV(memberList.members, "Members.CSV");
                 break;
             } else if (status == 2) {
                 memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
