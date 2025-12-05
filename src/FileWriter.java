@@ -1,11 +1,15 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 public class FileWriter {
 
     public void writeMembersToCSV(Member member, String filepath) {
+        File file = new File(filepath);
+        boolean fileExists = file.exists();
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
-            if(filepath.isEmpty()) {
+            if (!fileExists || file.length() == 0) {
+
                 writer.append("Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato" + "\n");
             }
                 writer.append(member.getName()).append(" ,");
