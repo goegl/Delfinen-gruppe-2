@@ -70,16 +70,21 @@ public class MemberManager {
             return true;
         }
     }
-    public Member findByPhoneNumber(String phoneNumber){
+    public Member findByPhoneNumber(String phoneNumber) {
         Member memberToFind = null;
-        for(Member member : members){
-            if(member.getPhoneNumber() == phoneNumber){
-                return memberToFind = member ;
+        while (memberToFind == null) {
+            for (Member member : members) {
+                if (member.getPhoneNumber() == phoneNumber) {
+                    return memberToFind = member;
+
+                } else if (memberToFind == null) {
+                    System.out.println("Kunne ikke finde medlem");
+
+                }
             }
         }
-      return memberToFind;
+        return memberToFind;
     }
-
 
 
     @Override
