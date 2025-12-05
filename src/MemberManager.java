@@ -26,7 +26,7 @@ public class MemberManager {
         return member;
     }
 
-    public Member createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
+    public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
         CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, nextID, activeStatus);
         competitiveMember.setMemberFee();
         setNextID(nextID);

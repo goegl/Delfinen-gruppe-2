@@ -10,7 +10,7 @@ public class UserInterface {
         this.inputSC = new Scanner(System.in);
     }
 
-    public void createUI(MemberManager memberList, FileWriter fileManager) {
+    public void createUI(MemberManager memberList, FileWriter fileWriter) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
@@ -33,8 +33,13 @@ public class UserInterface {
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileWriter);
                     System.out.println(memberList.toString());
+                //Trainer menu
+                case 2:
+                    switch(number){
+                        case 1:
+                    }
             }
         }
     }
@@ -105,6 +110,9 @@ public class UserInterface {
             inputSC.nextLine();
             if (status == 1) {
                 fileWriter.writeMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
+                if(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18){
+                    fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
+                }  fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
                 break;
             } else if (status == 2) {
                 fileWriter.writeMembersToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
@@ -113,7 +121,6 @@ public class UserInterface {
                 System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");
             }
         }
-        ;
 
     }
 
