@@ -35,7 +35,6 @@ public class UserInterface {
                     System.out.println("Er du konkurrence svømmer?");
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileManager);
                     System.out.println(memberList.toString());
-                    fileManager.writeMembersToCSV(memberList.members, "Members.CSV");
             }
         }
     }
@@ -100,20 +99,22 @@ public class UserInterface {
 
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
-                              LocalDate dateOfBirth, boolean activeStatus, FileWriter fileManager) {
+                              LocalDate dateOfBirth, boolean activeStatus, FileWriter fileWriter) {
         while (true) {
             int status = inputSC.nextInt();
             inputSC.nextLine();
             if (status == 1) {
-                memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+                fileWriter.writeMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
                 break;
             } else if (status == 2) {
-                memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+                fileWriter.writeMembersToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
                 break;
             } else {
                 System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");
             }
         }
+        ;
+
     }
 
     //Added method to chose activeStatus with input validation
