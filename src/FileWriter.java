@@ -1,12 +1,10 @@
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class FileManager {
+public class FileWriter {
 
     public void writeMembersToCSV(List<Member> members, String filepath) {
-        try (FileWriter writer = new FileWriter(filepath, true)) {
+        try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             writer.append("Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato" + "\n");
             for (Member member : members) {
                 writer.append(member.getName()).append(" ,");

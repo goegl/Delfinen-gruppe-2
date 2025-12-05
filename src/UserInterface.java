@@ -10,11 +10,12 @@ public class UserInterface {
         this.inputSC = new Scanner(System.in);
     }
 
-    public void createUI(MemberManager memberList, FileManager fileManager) {
+    public void createUI(MemberManager memberList, FileWriter fileManager) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
-                    "2. ");
+                    "2. Træner Menu" +
+                    " ");
 
 
             int number = inputSC.nextInt();
@@ -99,7 +100,7 @@ public class UserInterface {
 
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
-                              LocalDate dateOfBirth, boolean activeStatus, FileManager fileManager) {
+                              LocalDate dateOfBirth, boolean activeStatus, FileWriter fileManager) {
         while (true) {
             int status = inputSC.nextInt();
             inputSC.nextLine();
