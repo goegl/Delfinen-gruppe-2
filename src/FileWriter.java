@@ -17,7 +17,6 @@ public class FileWriter {
             writer.append(member.getAddress()).append(" ,");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
             writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(" ,");
-            writer.append(String.valueOf(member.getMemberID())).append(" ,");
             writer.append(String.valueOf(member.getMemberFee())).append(" ,");
             writer.append(member.membershipStartToString(member.getMembershipStart())).append(" , \n");
 

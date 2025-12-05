@@ -4,17 +4,15 @@ public class Member{
     private final String name;
     private final LocalDate dateOfBirth;
     private String phoneNumber;
-    private final int memberID;
     private String address;
     private boolean activeStatus;
     double memberFee;
     private final LocalDate membershipStart;
 
-    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, int memberID, boolean activeStatus){
+    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
-        this.memberID = memberID;
         this.address = address;
         this.activeStatus = activeStatus;
         this.memberFee = 0;
@@ -38,10 +36,6 @@ public class Member{
     }
     public String membershipStartToString(LocalDate membershipStart){
         return membershipStart.toString();
-    }
-
-    public int getMemberID() {
-        return memberID;
     }
 
     public boolean getActiveStatus() {
@@ -76,6 +70,6 @@ public class Member{
 
     @Override
     public String toString() {
-        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus + "MedlemsID: " + getMemberID();
+        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
     }
 }

@@ -8,36 +8,29 @@ public class MemberManager {
     List<CompetitiveMember> juniorCompMembers;
     List<CompetitiveMember> seniorCompMembers;
 
-    private int nextID;
 
     public MemberManager() {
         this.members = new ArrayList<>();
         this.juniorCompMembers = new ArrayList<>();
         this.seniorCompMembers = new ArrayList<>();
-        this.nextID = 1;
     }
 
     public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
-        Member member = new Member(name, phoneNumber, address, dateOfBirth, nextID, activeStatus);
+        Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus);
         member.setMemberFee();
         members.add(member);
-        setNextID(nextID);
         System.out.println(member);
         return member;
     }
 
     public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
-        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, nextID, activeStatus);
+        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus);
         competitiveMember.setMemberFee();
-        setNextID(nextID);
         members.add(competitiveMember);
         addToCompList(competitiveMember);
         return competitiveMember;
     }
 
-    public void setNextID(int nextID) {
-        this.nextID = nextID + 1;
-    }
 
 
     public String printMemberList() {
