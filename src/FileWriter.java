@@ -38,7 +38,6 @@ public class FileWriter {
             writer.append(member.getName()).append(" ,");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
             writer.append(member.getPhoneNumber()).append(" ,");
-            writer.append(member.disciplinesToString(member.getDisciplines())).append(" ,");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
 
             writer.close();
@@ -58,7 +57,6 @@ public class FileWriter {
             writer.append(member.getName()).append(" ,");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
             writer.append(member.getPhoneNumber()).append(" ,");
-            writer.append(member.disciplinesToString(member.getDisciplines())).append(" ,");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
 
             writer.close();
