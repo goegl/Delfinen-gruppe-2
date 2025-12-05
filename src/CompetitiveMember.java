@@ -6,8 +6,8 @@ import java.util.List;
 public class CompetitiveMember extends Member{
     List<Disciplines> disciplines;
 
-    public CompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
-        super(name,phoneNumber, address, dateOfBirth, activeStatus);
+    public CompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
+        super(name,phoneNumber, address, dateOfBirth, activeStatus, isPaid);
         this.disciplines = new ArrayList<>();
     }
     public List<Disciplines> getDisciplines() {

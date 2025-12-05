@@ -14,8 +14,8 @@ public class UserInterface {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
-                    "2. Træner Menu" +
-                    " ");
+                    "2. Træner Menu\n" +
+                    "3. Kasser Menu \n");
 
 
             int number = inputSC.nextInt();
@@ -33,12 +33,30 @@ public class UserInterface {
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, fileWriter);
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true ,fileWriter);
                     System.out.println(memberList.toString());
+                    break;
                 //Trainer menu
                 case 2:
                     switch(number){
                         case 1:
+                    }
+                    //Kasser Menu
+                case 3:
+                    switch(number){
+                        //Case 1: begregn inkomst
+                        case 1:
+                            System.out.println(" ");
+
+                        break;
+                        //Case 2: Mark isPaid
+                        case 2:
+                            memberList.setIsPaid(memberList.findByPhoneNumber(inputSC.nextLine()));
+
+                            break;
+                            //Case 3: Print medlemmer i restance
+                        case 3:
+                            break;
                     }
             }
         }
@@ -104,18 +122,18 @@ public class UserInterface {
 
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
-                              LocalDate dateOfBirth, boolean activeStatus, FileWriter fileWriter) {
+                              LocalDate dateOfBirth, boolean activeStatus, boolean isPaid, FileWriter fileWriter) {
         while (true) {
             int status = inputSC.nextInt();
             inputSC.nextLine();
             if (status == 1) {
-                fileWriter.writeMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
-                if(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18){
-                    fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
-                }  fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
+                fileWriter.writeMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus,isPaid), "Members.CSV");
+                if(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus, isPaid).getAgeInt(dateOfBirth) < 18){
+                    fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus,isPaid), "JuniorCompetitiveMembers.CSV");
+                }  fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus,isPaid), "SeniorCompetitiveMembers.CSV");
                 break;
             } else if (status == 2) {
-                fileWriter.writeMembersToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
+                fileWriter.writeMembersToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus,isPaid), "Members.CSV");
                 break;
             } else {
                 System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");

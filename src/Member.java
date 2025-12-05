@@ -8,8 +8,9 @@ public class Member{
     private boolean activeStatus;
     double memberFee;
     private final LocalDate membershipStart;
+    private boolean isPaid;
 
-    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus){
+    public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
@@ -17,6 +18,7 @@ public class Member{
         this.activeStatus = activeStatus;
         this.memberFee = 0;
         this.membershipStart = LocalDate.now();
+        this.isPaid = true;
     }
 
     public String getName() {
@@ -66,7 +68,9 @@ public class Member{
     }
 
 
-
+    public boolean getIsPaid() {
+        return isPaid;
+    }
 
     @Override
     public String toString() {

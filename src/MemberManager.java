@@ -15,16 +15,16 @@ public class MemberManager {
         this.seniorCompMembers = new ArrayList<>();
     }
 
-    public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
-        Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus);
+    public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
+        Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus, isPaid);
         member.setMemberFee();
         members.add(member);
         System.out.println(member);
         return member;
     }
 
-    public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
-        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus);
+    public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
+        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus, isPaid);
         competitiveMember.setMemberFee();
         members.add(competitiveMember);
         addToCompList(competitiveMember);
@@ -62,6 +62,25 @@ public class MemberManager {
             }
 
     }
+    public boolean setIsPaid(Member member){
+        if(member.getIsPaid() == true){
+            return false;
+
+        }else{
+            return true;
+        }
+    }
+    public Member findByPhoneNumber(String phoneNumber){
+        Member memberToFind = null;
+        for(Member member : members){
+            if(member.getPhoneNumber() == phoneNumber){
+                return memberToFind = member ;
+            }
+        }
+      return memberToFind;
+    }
+
+
 
     @Override
     public String toString() {
