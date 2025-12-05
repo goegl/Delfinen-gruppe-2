@@ -10,7 +10,7 @@ public class FileWriter {
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if (!fileExists || file.length() == 0) {
 
-                writer.append("Name, PhoneNumber, Address, Aktiv Status, Fødselsdagsdato, MedlemsId, Kontingentsats, Oprettelsesdato" + "\n");
+                writer.append("Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Kontingentsats, Oprettelsesdato" + "\n");
             }
                 writer.append(member.getName()).append(" ,");
                 writer.append(member.getPhoneNumber()).append(" ,");
@@ -31,11 +31,11 @@ public class FileWriter {
     public void writeJuniorCompetitiveMembersToCSV(CompetitiveMember member, String filepath) {
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if(filepath.isEmpty() || filepath.isBlank()) {
-                writer.append("Name, Age, ID, Discipliner, ActiveStatus" + "\n");
+                writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
             }
             writer.append(member.getName()).append(" ,");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
-            writer.append(String.valueOf(member.getMemberID())).append(" ,");
+            writer.append(member.getPhoneNumber()).append(" ,");
             writer.append(member.disciplinesToString(member.getDisciplines())).append(" ,");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
 
@@ -48,11 +48,11 @@ public class FileWriter {
     public void writeSeniorCompetitiveMembersToCSV(CompetitiveMember member, String filepath) {
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if(filepath.isEmpty()) {
-                writer.append("Name, Age, ID, Discipliner, ActiveStatus" + "\n");
+                writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
             }
             writer.append(member.getName()).append(" ,");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
-            writer.append(String.valueOf(member.getMemberID())).append(" ,");
+            writer.append(member.getPhoneNumber()).append(" ,");
             writer.append(member.disciplinesToString(member.getDisciplines())).append(" ,");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
 

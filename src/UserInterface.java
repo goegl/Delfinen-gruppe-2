@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Scanner inputSC;
+    private final Scanner inputSC;
 
 
     public UserInterface() {
