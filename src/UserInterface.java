@@ -43,7 +43,8 @@ public class UserInterface {
                     }
                     //Kasser Menu
                 case 3:
-                    switch(number){
+                    System.out.println("Vælg funktion");
+                    switch(inputSC.nextInt()){
                         //Case 1: begregn inkomst
                         case 1:
                             System.out.println(" ");
