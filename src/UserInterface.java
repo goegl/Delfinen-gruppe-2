@@ -73,7 +73,7 @@ public class UserInterface {
                 continue;
             }
 
-            if (!input.matches("^[A-Åa-å ]+$")) {
+            if (!input.matches("^[A-Za-zæøåÆØÅ ]+$")) {
                 System.out.println("Kun bogstaver bliver accepteret. Prøv igen:");
                 continue;
             }
