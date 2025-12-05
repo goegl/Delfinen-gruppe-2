@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FileWriter {
 
-    public void writeMembersToCSV(Member member, String filepath) {
+    public void writeMemberToCSV(Member member, String filepath) {
         File file = new File(filepath);
         boolean fileExists = file.exists();
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
