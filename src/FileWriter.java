@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+
 public class FileWriter {
 
     public void writeMemberToCSV(Member member, String filepath) {
@@ -17,7 +18,7 @@ public class FileWriter {
             writer.append(member.getAddress()).append(",");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
             writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
-            writer.append(String.valueOf(member.getIsPaid())).append(",");
+            writer.append(String.valueOf(member.IsPaid())).append(",");
             writer.append(member.membershipStartToString(member.getMembershipStart())).append(",\n");
 
 

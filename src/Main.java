@@ -1,7 +1,13 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         MemberManager memberManager = new MemberManager();
         FileWriter fileManager = new FileWriter();
+                CSVFileReader csvReader = new CSVFileReader();
+                List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
+                memberManager.addMembers(loadedMembers);
+                //System.out.println("Antal medlemmer indlæst: " + memberManager.members.size());
 
         //Add members
         //Member andreas = new Member("Andreas", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), 1, true);

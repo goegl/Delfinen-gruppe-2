@@ -1,7 +1,6 @@
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -9,42 +8,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.FileReader;
 
-public class CSVFileReader implements Reader{
+public class CSVFileReader implements Reader {
     public List<Member> readMembersFromFile(String filepath) {
         List<Member> memberList = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader(filepath));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
             String line;
+            if ((line = reader.readLine()) != null) {
+            }
 
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 Member member = parseMember(line);
                 memberList.add(member);
             }
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return memberList;
     }
 
-//    Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Kontingentsats, Oprettelsesdato
     @NotNull
     private static Member parseMember(String line) {
         String[] fields = line.split(",");
+
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = fields[i].trim();
+        }
+
         String name = fields[0];
         String phoneNumber = fields[1];
-        String adress = fields[2];
+        String address = fields[2];
         boolean activeStatus = Boolean.parseBoolean(fields[3]);
         LocalDate birthDate = LocalDate.parse(fields[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         boolean isPaid = Boolean.parseBoolean(fields[5]);
         LocalDate membershipStart = LocalDate.parse(fields[6], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         return new Member(
-               name,
+                name,
                 phoneNumber,
-                adress,
+                address,
                 birthDate,
                 activeStatus,
                 isPaid,
-                membershipStart);
+                membershipStart
+        );
     }
 }

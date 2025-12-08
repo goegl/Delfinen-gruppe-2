@@ -69,12 +69,16 @@ public class Member {
     }
 
 
-    public boolean getIsPaid() {
+    public boolean IsPaid() {
         return isPaid;
     }
 
     @Override
     public String toString() {
         return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
+    }
+
+    public void setIsPaid(boolean paid) {
+        this.isPaid = paid;
     }
 }

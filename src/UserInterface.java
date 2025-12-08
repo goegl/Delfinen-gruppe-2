@@ -43,7 +43,8 @@ public class UserInterface {
                     }
                     //Kasser Menu
                 case 3:
-                    System.out.println("Vælg funktion");
+                    System.out.println("Vælg funktion \n" +
+                            "2. Vælg et medlem der har betalt \n");
                     switch(inputSC.nextInt()){
                         //Case 1: begregn inkomst
                         case 1:
@@ -52,14 +53,28 @@ public class UserInterface {
                         break;
                         //Case 2: Mark isPaid
                         case 2:
-                            memberList.setIsPaid(memberList.getMemberWithPhonenumber(inputSC.nextLine()));
-
+                            markMemberisPaid(memberList);
                             break;
-                            //Case 3: Print medlemmer i restance
+                        //Case 3: Print medlemmer i restance
                         case 3:
+                            System.out.println("Medlemmer i restance");
+
                             break;
                     }
             }
+        }
+    }
+
+    private void markMemberisPaid(MemberManager memberList) {
+        System.out.println("Indtast telefonnummer på medlem:");
+        inputSC.nextLine();
+        String phoneNumber = inputSC.nextLine();
+        Member m = memberList.getMemberWithPhonenumber(phoneNumber);
+        if (m != null) {
+            m.setIsPaid(true);
+            System.out.println("Medlem med nummer " + phoneNumber + " er nu markeret som betalt.");
+        } else {
+            System.out.println("Intet medlem med det telefonnummer blev fundet.");
         }
     }
 

@@ -37,6 +37,9 @@ public class MemberManager {
         }
         return "";
     }
+    public void addMembers(List<Member> membersFromFile) {
+        members.addAll(membersFromFile);
+    }
 
     public String printJuniorCompLists(){
         for(CompetitiveMember member : juniorCompMembers){
@@ -60,23 +63,22 @@ public class MemberManager {
             }
 
     }
-    public boolean setIsPaid(Member member){
-        if(member.getIsPaid() == true){
-            return false;
-
-        }else{
+    public boolean setIsPaidForMember(String phoneNumber, boolean paid) {
+        Member member = getMemberWithPhonenumber(phoneNumber);
+        if (member != null) {
+            member.setIsPaid(paid);
             return true;
         }
+        return false;
     }
-    public Member getMemberWithPhonenumber(String tlf) {
+    public Member getMemberWithPhonenumber(String phoneNumber) {
         for (Member m : members) {
-            if (m.getPhoneNumber().equals(tlf)) return m;
+            if (m.getPhoneNumber().equals(phoneNumber)) {
+                return m;
+            }
         }
-        System.out.println("Kunne ikke finde medlem med dette telefonnummer");
         return null;
     }
-
-
     @Override
     public String toString() {
         return printMemberList();
