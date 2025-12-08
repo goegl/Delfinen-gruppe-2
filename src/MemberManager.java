@@ -7,6 +7,7 @@ public class MemberManager {
     List<Member> members;
     List<CompetitiveMember> juniorCompMembers;
     List<CompetitiveMember> seniorCompMembers;
+    private final MemberFee memberFeeCalculator = new MemberFee();
 
 
     public MemberManager() {
@@ -91,6 +92,33 @@ public class MemberManager {
         }
         return null;
     }
+    public double getTotalMemberFeeForOneYear() {
+        double totalFee = 0.0;
+
+        for (Member member : members) {
+            totalFee += memberFeeCalculator.calculateFee(
+                    member.getActiveStatus(),
+                    member.getDateOfBirth()
+            );
+        }
+
+        for (CompetitiveMember member : juniorCompMembers) {
+            totalFee += memberFeeCalculator.calculateFee(
+                    member.getActiveStatus(),
+                    member.getDateOfBirth()
+            );
+        }
+
+        for (CompetitiveMember member : seniorCompMembers) {
+            totalFee += memberFeeCalculator.calculateFee(
+                    member.getActiveStatus(),
+                    member.getDateOfBirth()
+            );
+        }
+
+        return totalFee;
+    }
+
     @Override
     public String toString() {
         return printMemberList();

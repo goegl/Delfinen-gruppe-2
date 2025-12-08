@@ -8,7 +8,6 @@ public class Main {
         List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
         memberManager.addMembers(loadedMembers);
         //System.out.println("Antal medlemmer indlæst: " + memberManager.members.size());
-
         //Add members
         //Member andreas = new Member("Andreas", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), 1, true);
         // CompetitiveMember emil = new CompetitiveMember("Emil", "87654321", "Gaden", LocalDate.of(1920, 9, 5), 2, true);
