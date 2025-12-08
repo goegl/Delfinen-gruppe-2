@@ -2,9 +2,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class MemberManager {
     List<Member> members;
@@ -32,13 +29,13 @@ public class MemberManager {
         return competitiveMember;
     }
 
-
-    public void printMemberList() {
-        for (Member member : members) {
-            System.out.println(member);
-        }
-    }
-
+    // Vi kan printe medlemslisten med printCSVFile i CSVFileReader klassen
+//    public void printMemberList() {
+//        for (Member member : members) {
+//            System.out.println(member);
+//        }
+//    }
+//
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
