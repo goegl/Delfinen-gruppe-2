@@ -27,16 +27,21 @@ public class CSVFileReader{
         return memberList;
     }
 
+//    Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Kontingentsats, Oprettelsesdato
     @NotNull
     private static Member parseMember(String line) {
         String[] fields = line.split(",");
         String name = fields[0];
-        LocalDate birthDate = LocalDate.parse(fields[1], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        boolean activeStatus = Boolean.parseBoolean(fields[2]);
+        String phoneNumber = fields[1];
+        String adress = fields[2];
+        boolean activeStatus = Boolean.parseBoolean(fields[3]);
+        LocalDate birthDate = LocalDate.parse(fields[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        double memberFee = Double.parseDouble(fields[5]);
+        LocalDate membershipStart = LocalDate.parse(fields[6], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         return new Member(
                name,
-                "1234567",
-                "Meinungsgade 8",
+                phoneNumber,
+                adress,
                 birthDate,
                 activeStatus,
                 false
