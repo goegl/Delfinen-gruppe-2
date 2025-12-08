@@ -40,7 +40,7 @@ public class UserInterface {
 
                 //Oversigt over alle medlemmer i Svømmeklubben
                 case 2:
-                    System.out.println(" 1. Vis alle medlemmer");
+                    System.out.println("Svømmeklubben Delfinen's Medlemmer: ");
                     fileReader.printCSVFile("Members.CSV");
                     break;
 
