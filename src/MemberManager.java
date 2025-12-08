@@ -100,7 +100,7 @@ public class MemberManager {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.out.println("Could not read file: " + e.getMessage());
+            System.out.println("Kunne ikke læse filen: " + e.getMessage());
         }
     }
 
