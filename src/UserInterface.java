@@ -18,9 +18,9 @@ public class UserInterface {
                     "3. Kasser Menu \n");
 
 
-            int number = inputSC.nextInt();
+            int createMember = inputSC.nextInt();
             inputSC.nextLine();
-            switch (number) {
+            switch (createMember) {
                 case 1:
                     System.out.println("Indtast navn");
                     String name = nameInputValidation();
@@ -38,9 +38,23 @@ public class UserInterface {
                     break;
                 //Trainer menu
                 case 2:
-                    switch(number){
+                    System.out.println("1. Vis Junior Hold");
+                    System.out.println("2. Vis Senior Hold");
+
+                    int trainerChoice = inputSC.nextInt();
+                    inputSC.nextLine();
+                    switch(trainerChoice){
                         case 1:
+                            memberList.printMemberList();
+                            break;
+                        case 2:
+                            memberList.printSeniorCompLists();
+                            break;
+                        default:
+                            System.out.println("Ugyldigt Valg!");
+
                     }
+                    break;
                     //Kasser Menu
                 case 3:
                     System.out.println("Vælg funktion \n" +

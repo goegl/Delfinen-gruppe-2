@@ -41,17 +41,15 @@ public class MemberManager {
         members.addAll(membersFromFile);
     }
 
-    public String printJuniorCompLists(){
+    public void printJuniorCompLists(){
         for(CompetitiveMember member : juniorCompMembers){
             System.out.println(member);
         }
-        return "";
     }
-    public String printSeniorCompLists(){
+    public void printSeniorCompLists(){
         for(CompetitiveMember member : seniorCompMembers){
             System.out.println(member);
         }
-        return "";
     }
 
     public void addToCompList(CompetitiveMember compMember) {

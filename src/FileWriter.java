@@ -55,10 +55,10 @@ public class FileWriter {
             if (!fileExists || file.length() == 0) {
                 writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
             }
-            writer.append(member.getName()).append(" ,");
-            writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
-            writer.append(member.getPhoneNumber()).append(" ,");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
+            writer.append(member.getName()).append(",");
+            writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
+            writer.append(member.getPhoneNumber()).append(",");
+            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
 
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
