@@ -51,4 +51,15 @@ public class CSVFileReader implements Reader {
                 membershipStart
         );
     }
+
+    public void printCSVFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Kunne ikke læse filen: " + e.getMessage());
+        }
+    }
 }

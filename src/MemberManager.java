@@ -33,12 +33,12 @@ public class MemberManager {
     }
 
 
-
     public void printMemberList() {
         for (Member member : members) {
             System.out.println(member);
         }
     }
+
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
@@ -52,10 +52,12 @@ public class MemberManager {
             System.out.println("Alle medlemmer har betalt.");
         }
     }
+
     public void addMembers(List<Member> membersFromFile) {
         members.addAll(membersFromFile);
     }
-//
+
+//    Gamle metoder jeg ikke kunne få til at virke i switch. Er erstattet med printCSVFile() metoden i CSVFileReader klassen
 //    public void printJuniorCompLists(){
 //        for(CompetitiveMember member : juniorCompMembers){
 //            System.out.println(member);
@@ -69,13 +71,14 @@ public class MemberManager {
 
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
-            if (age.getYears() < 18) {
-                juniorCompMembers.add(compMember);
-            } else if (age.getYears() <= 18) {
-                seniorCompMembers.add(compMember);
-            }
+        if (age.getYears() < 18) {
+            juniorCompMembers.add(compMember);
+        } else if (age.getYears() <= 18) {
+            seniorCompMembers.add(compMember);
+        }
 
     }
+
     public boolean setIsPaidForMember(String phoneNumber, boolean paid) {
         Member member = getMemberWithPhonenumber(phoneNumber);
         if (member != null) {
@@ -84,6 +87,7 @@ public class MemberManager {
         }
         return false;
     }
+
     public Member getMemberWithPhonenumber(String phoneNumber) {
         for (Member m : members) {
             if (m.getPhoneNumber().equals(phoneNumber)) {
@@ -93,22 +97,8 @@ public class MemberManager {
         return null;
     }
 
-    public void printCSVFile(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Kunne ikke læse filen: " + e.getMessage());
-        }
-    }
-
-
-
     @Override
     public String toString() {
         return members.toString();
     }
-
 }

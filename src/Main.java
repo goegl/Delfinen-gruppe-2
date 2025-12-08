@@ -5,7 +5,7 @@ public class Main {
         MemberManager memberManager = new MemberManager();
         FileWriter fileManager = new FileWriter();
         CSVFileReader csvReader = new CSVFileReader();
-        List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
+//        List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
 //        memberManager.addMembers(loadedMembers);
         //System.out.println("Antal medlemmer indlæst: " + memberManager.members.size());
 
@@ -19,9 +19,8 @@ public class Main {
 //
 //        MemberManager mm = new MemberManager();
 //        mm.createMember("Anders And", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), true);
-
         UserInterface userInterface = new UserInterface();
-        userInterface.createUI(memberManager, fileManager);
+        userInterface.createUI(memberManager, fileManager, csvReader);
 
     }
 }
