@@ -59,7 +59,8 @@ public class UserInterface {
                     //Kasser Menu
                 case 3:
                     System.out.println("Vælg funktion \n" +
-                            "2. Vælg et medlem der har betalt \n");
+                            "2. Vælg et medlem der har betalt \n" +
+                            "3. Se medlemmer i restance");
                     switch(inputSC.nextInt()){
                         //Case 1: begregn inkomst
                         case 1:
@@ -72,7 +73,7 @@ public class UserInterface {
                             break;
                         //Case 3: Print medlemmer i restance
                         case 3:
-                            System.out.println("Medlemmer i restance");
+                            memberList.printMembersInRestance();
 
                             break;
                     }

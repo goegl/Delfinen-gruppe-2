@@ -54,6 +54,7 @@ public class MemberManager {
         members.addAll(membersFromFile);
     }
 
+
     public void printJuniorCompLists(){
         for(CompetitiveMember member : juniorCompMembers){
             System.out.println(member);
