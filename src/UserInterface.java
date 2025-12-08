@@ -52,7 +52,7 @@ public class UserInterface {
                         break;
                         //Case 2: Mark isPaid
                         case 2:
-                            memberList.setIsPaid(memberList.findByPhoneNumber(inputSC.nextLine()));
+                            memberList.setIsPaid(memberList.getMemberWithPhonenumber(inputSC.nextLine()));
 
                             break;
                             //Case 3: Print medlemmer i restance
