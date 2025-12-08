@@ -15,17 +15,15 @@ public class MemberManager {
         this.seniorCompMembers = new ArrayList<>();
     }
 
-    public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
-        Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus, isPaid);
-        member.setMemberFee();
+    public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
+        Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus);
         members.add(member);
         System.out.println(member);
         return member;
     }
 
-    public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
-        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus, isPaid);
-        competitiveMember.setMemberFee();
+    public CompetitiveMember createCompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
+        CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus);
         members.add(competitiveMember);
         addToCompList(competitiveMember);
         return competitiveMember;

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.FileReader;
 
-public class CSVFileReader{
-    public List<Member> readMembersFromCSV(String filepath) {
+public class CSVFileReader implements Reader{
+    public List<Member> readMembersFromFile(String filepath) {
         List<Member> memberList = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(filepath));
@@ -36,7 +36,7 @@ public class CSVFileReader{
         String adress = fields[2];
         boolean activeStatus = Boolean.parseBoolean(fields[3]);
         LocalDate birthDate = LocalDate.parse(fields[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        double memberFee = Double.parseDouble(fields[5]);
+        boolean isPaid = Boolean.parseBoolean(fields[5]);
         LocalDate membershipStart = LocalDate.parse(fields[6], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         return new Member(
                name,
@@ -44,7 +44,7 @@ public class CSVFileReader{
                 adress,
                 birthDate,
                 activeStatus,
-                false
-                );
+                isPaid,
+                membershipStart);
     }
 }

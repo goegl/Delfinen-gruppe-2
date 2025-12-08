@@ -10,15 +10,15 @@ public class FileWriter {
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if (!fileExists || file.length() == 0) {
 
-                writer.append("Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Kontingentsats, Oprettelsesdato" + "\n");
+                writer.append("Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Har betalt, Oprettelsesdato" + "\n");
             }
-            writer.append(member.getName()).append(" ,");
-            writer.append(member.getPhoneNumber()).append(" ,");
-            writer.append(member.getAddress()).append(" ,");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
-            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(" ,");
-            writer.append(String.valueOf(member.getMemberFee())).append(" ,");
-            writer.append(member.membershipStartToString(member.getMembershipStart())).append(" , \n");
+            writer.append(member.getName()).append(",");
+            writer.append(member.getPhoneNumber()).append(",");
+            writer.append(member.getAddress()).append(",");
+            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
+            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
+            writer.append(String.valueOf(member.getIsPaid())).append(",");
+            writer.append(member.membershipStartToString(member.getMembershipStart())).append(",\n");
 
 
             writer.close();
@@ -35,10 +35,10 @@ public class FileWriter {
             if (!fileExists || file.length() == 0) {
                 writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
             }
-            writer.append(member.getName()).append(" ,");
-            writer.append(member.getAgeToString(member.getDateOfBirth())).append(" ,");
-            writer.append(member.getPhoneNumber()).append(" ,");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(" ,");
+            writer.append(member.getName()).append(",");
+            writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
+            writer.append(member.getPhoneNumber()).append(",");
+            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
 
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
@@ -76,7 +76,6 @@ public class FileWriter {
             for (Member member : members) {
                 writer.append(member.getName()).append(" ,");
                 writer.append(member.getPhoneNumber()).append(" ,");
-                writer.append(String.valueOf(member.getMemberFee())).append(" ,\n");
             }
 
         } catch (IOException e) {

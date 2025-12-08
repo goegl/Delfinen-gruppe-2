@@ -6,11 +6,9 @@ import java.util.List;
 public class CompetitiveMember extends Member{
 
 
-    public CompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid) {
-        super(name,phoneNumber, address, dateOfBirth, activeStatus, isPaid);
+    public CompetitiveMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
+        super(name,phoneNumber, address, dateOfBirth, activeStatus);
     }
-
-
 
     public int getAgeInt(LocalDate dateOfBirth){
         Period age = Period.between(dateOfBirth, LocalDate.now());
