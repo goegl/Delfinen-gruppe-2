@@ -31,13 +31,13 @@ public class MemberManager {
     }
 
 
-
     public String printMemberList() {
         for (Member member : members) {
             System.out.println(member);
         }
         return "";
     }
+
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
@@ -51,31 +51,35 @@ public class MemberManager {
             System.out.println("Alle medlemmer har betalt.");
         }
     }
+
     public void addMembers(List<Member> membersFromFile) {
         members.addAll(membersFromFile);
     }
 
 
-    public void printJuniorCompLists(){
-        for(CompetitiveMember member : juniorCompMembers){
+    public void printJuniorCompLists() {
+        for (CompetitiveMember member : juniorCompMembers) {
             System.out.println(member);
         }
     }
-    public void printSeniorCompLists(){
-        for(CompetitiveMember member : seniorCompMembers){
+
+    public void printSeniorCompLists() {
+        for (CompetitiveMember member : seniorCompMembers) {
             System.out.println(member);
         }
     }
 
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
-            if (age.getYears() < 18) {
-                juniorCompMembers.add(compMember);
-            } else if (age.getYears() <= 18) {
-                seniorCompMembers.add(compMember);
-            }
 
+        if (age.getYears() < 18) {
+            juniorCompMembers.add(compMember);
+        } else {
+            seniorCompMembers.add(compMember);
+        }
     }
+
+
     public boolean setIsPaidForMember(String phoneNumber, boolean paid) {
         Member member = getMemberWithPhonenumber(phoneNumber);
         if (member != null) {
@@ -84,6 +88,7 @@ public class MemberManager {
         }
         return false;
     }
+
     public Member getMemberWithPhonenumber(String phoneNumber) {
         for (Member m : members) {
             if (m.getPhoneNumber().equals(phoneNumber)) {
@@ -92,6 +97,7 @@ public class MemberManager {
         }
         return null;
     }
+
     public double getTotalMemberFeeForOneYear() {
         double totalFee = 0.0;
 
@@ -102,22 +108,9 @@ public class MemberManager {
             );
         }
 
-        for (CompetitiveMember member : juniorCompMembers) {
-            totalFee += memberFeeCalculator.calculateFee(
-                    member.getActiveStatus(),
-                    member.getDateOfBirth()
-            );
-        }
-
-        for (CompetitiveMember member : seniorCompMembers) {
-            totalFee += memberFeeCalculator.calculateFee(
-                    member.getActiveStatus(),
-                    member.getDateOfBirth()
-            );
-        }
-
         return totalFee;
     }
+
     public void printMembersWhoHavePaid() {
         for (Member member : members) {
             if (member.isPaid()) {
@@ -125,7 +118,6 @@ public class MemberManager {
             }
         }
     }
-
 
 
     @Override

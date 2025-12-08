@@ -159,25 +159,40 @@ public class UserInterface {
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
                               LocalDate dateOfBirth, boolean activeStatus, boolean isPaid, FileWriter fileWriter) {
+
         while (true) {
             int status = inputSC.nextInt();
             inputSC.nextLine();
+
             if (status == 1) {
-                fileWriter.writeMemberToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
-                if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18) {
-                    fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
+
+                CompetitiveMember member =
+                        memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+
+                fileWriter.writeMemberToCSV(member, "Members.CSV");
+
+                if (member.getAgeInt(dateOfBirth) < 18) {
+                    fileWriter.writeJuniorCompetitiveMembersToCSV(member, "JuniorCompetitiveMembers.CSV");
+                } else {
+                    fileWriter.writeSeniorCompetitiveMembersToCSV(member, "SeniorCompetitiveMembers.CSV");
                 }
-                fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
+
                 break;
+
             } else if (status == 2) {
-                fileWriter.writeMemberToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
+
+                Member member =
+                        memberList.createMember(name, phone, address, dateOfBirth, activeStatus);
+
+                fileWriter.writeMemberToCSV(member, "Members.CSV");
                 break;
+
             } else {
                 System.out.println("Ugyldigt input, prøv igen: (Tast 1: Konkurrencesvømmer, 2: Motionist)");
             }
         }
-
     }
+
 
     //Added method to chose activeStatus with input validation
     private boolean isActiveStatus() {
