@@ -7,7 +7,7 @@ public class Member {
     private String address;
     private boolean activeStatus;
     private final LocalDate membershipStart;
-    private boolean isPaid;
+    protected boolean isPaid;
 
 
     public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid, LocalDate membershipStart) {
