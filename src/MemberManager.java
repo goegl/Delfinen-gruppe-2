@@ -37,6 +37,19 @@ public class MemberManager {
         }
         return "";
     }
+    public void printMembersInRestance() {
+        System.out.println("Medlemmer der ikke har betalt:");
+        boolean found = false;
+        for (Member member : members) {
+            if (!member.IsPaid()) {
+                System.out.println(member);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Alle medlemmer har betalt.");
+        }
+    }
     public void addMembers(List<Member> membersFromFile) {
         members.addAll(membersFromFile);
     }

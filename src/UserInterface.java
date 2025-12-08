@@ -33,33 +33,35 @@ public class UserInterface {
                     System.out.println("Aktivt medlemsskab?");
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
-                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true ,fileWriter);
+                    typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true, fileWriter);
                     System.out.println(memberList.toString());
                     break;
                 //Trainer menu
                 case 2:
-                    switch(number){
+                    switch (number) {
                         case 1:
                     }
                     //Kasser Menu
                 case 3:
                     System.out.println("Vælg funktion \n" +
-                            "2. Vælg et medlem der har betalt \n");
-                    switch(inputSC.nextInt()){
+                            "1. Se forventet indkomst \n" +
+                            "2. Vælg et medlem der har betalt \n" +
+                            "3. Se medlemmer i restance\n");
+                    switch (inputSC.nextInt()) {
                         //Case 1: begregn inkomst
                         case 1:
                             System.out.println(" ");
 
-                        break;
+                            break;
                         //Case 2: Mark isPaid
                         case 2:
                             markMemberisPaid(memberList);
                             break;
                         //Case 3: Print medlemmer i restance
                         case 3:
-                            System.out.println("Medlemmer i restance");
-
+                            memberList.printMembersInRestance();
                             break;
+
                     }
             }
         }
@@ -144,9 +146,10 @@ public class UserInterface {
             inputSC.nextLine();
             if (status == 1) {
                 fileWriter.writeMemberToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
-                if(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18){
+                if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18) {
                     fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
-                }  fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
+                }
+                fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
                 break;
             } else if (status == 2) {
                 fileWriter.writeMemberToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
