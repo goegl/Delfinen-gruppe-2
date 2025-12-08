@@ -69,9 +69,10 @@ public class Member {
     }
 
 
-    public boolean IsPaid() {
+    public boolean isPaid() {
         return isPaid;
     }
+
 
     @Override
     public String toString() {

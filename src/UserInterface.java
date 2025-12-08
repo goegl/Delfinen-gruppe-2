@@ -67,6 +67,8 @@ public class UserInterface {
                         case 1:
                             double total = memberList.getTotalMemberFeeForOneYear();
                             System.out.println("Samlet indkomst for ét år: " + total + " kr.");
+                            System.out.println("\nMedlemmer der har betalt:");
+                            memberList.printMembersWhoHavePaid();
                             break;
 
                         //Case 2: Mark isPaid

@@ -42,7 +42,7 @@ public class MemberManager {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
         for (Member member : members) {
-            if (!member.IsPaid()) {
+            if (!member.isPaid()) {
                 System.out.println(member);
                 found = true;
             }
@@ -118,6 +118,27 @@ public class MemberManager {
 
         return totalFee;
     }
+    public void printMembersWhoHavePaid() {
+        for (Member member : members) {
+            if (member.isPaid()) {
+                System.out.println(member);
+            }
+        }
+
+        for (CompetitiveMember member : juniorCompMembers) {
+            if (member.isPaid()) {
+                System.out.println(member);
+            }
+        }
+
+        for (CompetitiveMember member : seniorCompMembers) {
+            if (member.isPaid()) {
+                System.out.println(member);
+            }
+        }
+    }
+
+
 
     @Override
     public String toString() {
