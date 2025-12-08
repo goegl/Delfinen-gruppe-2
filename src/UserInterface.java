@@ -36,7 +36,8 @@ public class UserInterface {
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true ,fileWriter);
                     System.out.println(memberList.toString());
                     break;
-                //Trainer menu
+
+                //Træner menu
                 case 2:
                     System.out.println("1. Vis Junior Hold");
                     System.out.println("2. Vis Senior Hold");
