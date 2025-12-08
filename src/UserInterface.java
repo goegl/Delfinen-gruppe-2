@@ -63,7 +63,7 @@ public class UserInterface {
                             "2. Vælg et medlem der har betalt \n" +
                             "3. Se medlemmer i restance");
                     switch (inputSC.nextInt()) {
-                        //Case 1: begregn inkomst
+                        //Case 1: begregn inkomst for 1 år
                         case 1:
                             double total = memberList.getTotalMemberFeeForOneYear();
                             System.out.println("Samlet indkomst for ét år: " + total + " kr.");

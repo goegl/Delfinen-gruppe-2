@@ -124,18 +124,6 @@ public class MemberManager {
                 System.out.println(member);
             }
         }
-
-        for (CompetitiveMember member : juniorCompMembers) {
-            if (member.isPaid()) {
-                System.out.println(member);
-            }
-        }
-
-        for (CompetitiveMember member : seniorCompMembers) {
-            if (member.isPaid()) {
-                System.out.println(member);
-            }
-        }
     }
 
 
