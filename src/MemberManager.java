@@ -70,20 +70,12 @@ public class MemberManager {
             return true;
         }
     }
-    public Member findByPhoneNumber(String phoneNumber) {
-        Member memberToFind = null;
-        while (memberToFind == null) {
-            for (Member member : members) {
-                if (member.getPhoneNumber() == phoneNumber) {
-                    return memberToFind = member;
-
-                } else if (memberToFind == null) {
-                    System.out.println("Kunne ikke finde medlem");
-
-                }
-            }
+    public Member getMemberWithPhonenumber(String tlf) {
+        for (Member m : members) {
+            if (m.getPhoneNumber().equals(tlf)) return m;
         }
-        return memberToFind;
+        System.out.println("Kunne ikke finde medlem med dette telefonnummer");
+        return null;
     }
 
 
