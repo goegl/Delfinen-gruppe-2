@@ -196,7 +196,7 @@ public class UserInterface {
 
     //Added method to chose activeStatus with input validation
     private boolean isActiveStatus() {
-        boolean activeStatus = false;
+        boolean activeStatus;
         while (true) {
             int status = inputSC.nextInt();
 
@@ -213,6 +213,7 @@ public class UserInterface {
         inputSC.nextLine();
         return activeStatus;
     }
+
 
     //Method to input date of birth of new members, and format it to "ÅR-MÅNED-DAG"
     public LocalDate inputDateOfBirth(Scanner sc) {
