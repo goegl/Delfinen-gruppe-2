@@ -19,7 +19,7 @@ public class FileWriter {
             writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
             writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
             writer.append(String.valueOf(member.IsPaid())).append(",");
-            writer.append(member.membershipStartToString(member.getMembershipStart())).append(",\n");
+            writer.append(member.membershipStartToString(member.getMembershipStart())).append("\n");
 
 
             writer.close();
@@ -39,7 +39,7 @@ public class FileWriter {
             writer.append(member.getName()).append(",");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
             writer.append(member.getPhoneNumber()).append(",");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
+            writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
 
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
@@ -58,7 +58,7 @@ public class FileWriter {
             writer.append(member.getName()).append(",");
             writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
             writer.append(member.getPhoneNumber()).append(",");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
+            writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
 
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);

@@ -6,7 +6,7 @@ public class Main {
         FileWriter fileManager = new FileWriter();
         CSVFileReader csvReader = new CSVFileReader();
         List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
-        memberManager.addMembers(loadedMembers);
+//        memberManager.addMembers(loadedMembers);
         //System.out.println("Antal medlemmer indlæst: " + memberManager.members.size());
 
         //Add members

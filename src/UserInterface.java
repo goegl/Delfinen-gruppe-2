@@ -41,18 +41,22 @@ public class UserInterface {
                 case 2:
                     System.out.println("1. Vis Junior Hold");
                     System.out.println("2. Vis Senior Hold");
+                    System.out.println("3. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
                     switch(trainerChoice){
                         case 1:
-                            memberList.printMemberList();
+                            System.out.println("Delfinen's Junior Hold: ");
+                            memberList.printCSVFile("JuniorCompetitiveMembers.CSV");
                             break;
                         case 2:
-                            memberList.printSeniorCompLists();
+                            System.out.println("Delfinen's Senior Hold: ");
+                            memberList.printCSVFile("SeniorCompetitiveMembers.CSV");
                             break;
                         default:
                             System.out.println("Ugyldigt Valg!");
+
 
                     }
                     break;
@@ -161,7 +165,8 @@ public class UserInterface {
                 fileWriter.writeMemberToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
                 if(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18){
                     fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
-                }  fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
+                } else if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) > 18)
+                    fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
                 break;
             } else if (status == 2) {
                 fileWriter.writeMemberToCSV(memberList.createMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");

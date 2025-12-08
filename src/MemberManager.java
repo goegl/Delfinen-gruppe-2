@@ -2,6 +2,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class MemberManager {
     List<Member> members;
@@ -31,11 +34,10 @@ public class MemberManager {
 
 
 
-    public String printMemberList() {
+    public void printMemberList() {
         for (Member member : members) {
             System.out.println(member);
         }
-        return "";
     }
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
@@ -53,17 +55,17 @@ public class MemberManager {
     public void addMembers(List<Member> membersFromFile) {
         members.addAll(membersFromFile);
     }
-
-    public void printJuniorCompLists(){
-        for(CompetitiveMember member : juniorCompMembers){
-            System.out.println(member);
-        }
-    }
-    public void printSeniorCompLists(){
-        for(CompetitiveMember member : seniorCompMembers){
-            System.out.println(member);
-        }
-    }
+//
+//    public void printJuniorCompLists(){
+//        for(CompetitiveMember member : juniorCompMembers){
+//            System.out.println(member);
+//        }
+//    }
+//    public void printSeniorCompLists(){
+//        for(CompetitiveMember member : seniorCompMembers){
+//            System.out.println(member);
+//        }
+//    }
 
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
@@ -90,8 +92,23 @@ public class MemberManager {
         }
         return null;
     }
+
+    public void printCSVFile(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Could not read file: " + e.getMessage());
+        }
+    }
+
+
+
     @Override
     public String toString() {
-        return printMemberList();
+        return members.toString();
     }
+
 }
