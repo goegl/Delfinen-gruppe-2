@@ -107,6 +107,14 @@ public class MemberManager {
         }
         return null;
     }
+    public CompetitiveMember getCompMemberWithPhonenumber(String phoneNumber, ArrayList<CompetitiveMember> compMemberList) {
+        for (CompetitiveMember m : compMemberList) {
+            if (m.getPhoneNumber().equals(phoneNumber)) {
+                return m;
+            }
+        }
+        return null;
+    }
 
     public double getTotalMemberFeeForOneYear() {
         double totalFee = 0.0;

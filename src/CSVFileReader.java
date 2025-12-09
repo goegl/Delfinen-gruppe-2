@@ -1,6 +1,7 @@
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,17 +12,19 @@ import java.io.FileReader;
 public class CSVFileReader implements Reader {
     public List<Member> readMembersFromFile(String filepath) {
         List<Member> memberList = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            reader.lines().skip(1);
-            if ((line = reader.readLine()) != null) {
+        if (new File("Members.CSV").exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+                String line;
+                reader.lines().skip(1);
+                if ((line = reader.readLine()) != null) {
+                }
+                while ((line = reader.readLine()) != null) {
+                    Member member = parseMember(line);
+                    memberList.add(member);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            while ((line = reader.readLine()) != null) {
-                Member member = parseMember(line);
-                memberList.add(member);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return memberList;
     }
@@ -62,24 +65,28 @@ public class CSVFileReader implements Reader {
             System.out.println("Kunne ikke læse filen: " + e.getMessage());
         }
     }
-    public List<CompetitiveMember> readCompMemberFromCSV(String filepath){
+
+    public List<CompetitiveMember> readCompMemberFromCSV(String filepath) {
         List<CompetitiveMember> memberList = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            reader.lines().skip(1);
-            if ((line = reader.readLine()) != null) {
+        if (new File("JuniorCompetitiveMembers.CSV").exists() || new File("SeniorCompetitiveMembers.CSV").exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+                String line;
+                reader.lines().skip(1);
+                if ((line = reader.readLine()) != null) {
+                }
+                while ((line = reader.readLine()) != null) {
+                    CompetitiveMember member = parseCompetitiveMember(line);
+                    memberList.add(member);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            while ((line = reader.readLine()) != null) {
-                CompetitiveMember member = parseCompetitiveMember(line);
-                memberList.add(member);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return memberList;
     }
+
     @NotNull
-    private static CompetitiveMember parseCompetitiveMember(String line){
+    private static CompetitiveMember parseCompetitiveMember(String line) {
         String[] fields = line.split(",");
 
         for (int i = 0; i < fields.length; i++) {
@@ -89,8 +96,8 @@ public class CSVFileReader implements Reader {
         String name = fields[0];
         String phoneNumber = fields[1];
         String address = fields[2];
-        boolean activeStatus = Boolean.parseBoolean(fields[3]);
-        LocalDate birthDate = LocalDate.parse(fields[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate birthDate = LocalDate.parse(fields[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        boolean activeStatus = Boolean.parseBoolean(fields[4]);
         return new CompetitiveMember(
                 name,
                 phoneNumber,
