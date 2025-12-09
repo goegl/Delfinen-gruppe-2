@@ -28,7 +28,7 @@ public class UserInterface {
                     System.out.println("Indtast nummer");
                     String phone = numberInputValidation();
                     System.out.println("Indtast adresse");
-                    String address = addressInputValidation();
+                    String address = lettersAndNumbersInputValidation();
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
                     System.out.println("Aktivt medlemsskab?");
@@ -71,7 +71,12 @@ public class UserInterface {
                         case 4:
                             createSeniorTrainingResult(memberList, resultManager);
                             break;
-
+                        case 5:
+                            createJuniorCompResult(memberList, resultManager);
+                            break;
+                        case 6:
+                            createSeniorCompResult(memberList, resultManager);
+                            break;
                         default:
                             System.out.println("Ugyldigt Valg!");
 
@@ -105,6 +110,44 @@ public class UserInterface {
                     }
             }
         }
+    }
+
+    private void createSeniorCompResult(MemberManager memberList, ResultManager resultManager) {
+        System.out.println("Træningsresultat for Seniorsvømmer");
+        System.out.println("Indtast telefonnummer på svømmeren");
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
+        System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
+        Disciplines discipline = typeOfDiscipline();
+        System.out.println("Indtast Distance");
+        int distance = inputSC.nextInt();
+        System.out.println("Indtast Minutter");
+        int minutter = inputSC.nextInt();
+        System.out.println("Indtast Sekunder");
+        int sekunder = inputSC.nextInt();
+        System.out.println("Indtast Millisekunder");
+        int millisekunder = inputSC.nextInt();
+        System.out.println("Indtast Stævnenavn");
+        String compettitionName = lettersAndNumbersInputValidation();
+        resultManager.createCompetitiveResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now(), compettitionName);
+    }
+
+    private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager) {
+        System.out.println("Stævneresultat for Juniorsvømmer");
+        System.out.println("Indtast telefonnummer på svømmeren");
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
+        System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
+        Disciplines discipline = typeOfDiscipline();
+        System.out.println("Indtast Distance");
+        int distance = inputSC.nextInt();
+        System.out.println("Indtast Minutter");
+        int minutter = inputSC.nextInt();
+        System.out.println("Indtast Sekunder");
+        int sekunder = inputSC.nextInt();
+        System.out.println("Indtast Millisekunder");
+        int millisekunder = inputSC.nextInt();
+        System.out.println("Indtast Stævnenavn");
+        String competitionName = lettersAndNumbersInputValidation();
+        resultManager.createCompetitiveResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now(), competitionName);
     }
 
     private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
@@ -179,7 +222,7 @@ public class UserInterface {
         }
     }
 
-    private String addressInputValidation() {
+    private String lettersAndNumbersInputValidation() {
         while (true) {
             String input = inputSC.nextLine().trim();
 

@@ -24,6 +24,7 @@ public class ResultManager {
                                                      LocalDate date, String competitionName){
         CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, distance ,resultMinutes, resultSeconds, resultMilliseconds, date, competitionName);
         competitiveResults.add(competitiveResult);
+        System.out.println(competitiveResult);
         return competitiveResult;
     }
 
