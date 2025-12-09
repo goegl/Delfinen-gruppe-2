@@ -17,9 +17,8 @@ public class Main {
 //
 //        MemberManager mm = new MemberManager();
 //        mm.createMember("Anders And", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), true);
-
-    UserInterface userInterface = new UserInterface();
-        userInterface.createUI(memberManager, fileManager);
+        UserInterface userInterface = new UserInterface();
+        userInterface.createUI(memberManager, fileManager, csvReader);
 
     }
 }

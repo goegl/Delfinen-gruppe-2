@@ -30,14 +30,13 @@ public class MemberManager {
         return competitiveMember;
     }
 
-
-    public String printMemberList() {
-        for (Member member : members) {
-            System.out.println(member);
-        }
-        return "";
-    }
-
+    // Vi kan printe medlemslisten med printCSVFile i CSVFileReader klassen
+//    public void printMemberList() {
+//        for (Member member : members) {
+//            System.out.println(member);
+//        }
+//    }
+//
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
@@ -56,21 +55,25 @@ public class MemberManager {
         members.addAll(membersFromFile);
     }
 
-
-    public void printJuniorCompLists() {
-        for (CompetitiveMember member : juniorCompMembers) {
-            System.out.println(member);
-        }
-    }
-
-    public void printSeniorCompLists() {
-        for (CompetitiveMember member : seniorCompMembers) {
-            System.out.println(member);
-        }
-    }
+//    Gamle metoder jeg ikke kunne få til at virke i switch. Er erstattet med printCSVFile() metoden i CSVFileReader klassen
+//    public void printJuniorCompLists(){
+//        for(CompetitiveMember member : juniorCompMembers){
+//            System.out.println(member);
+//        }
+//    }
+//    public void printSeniorCompLists(){
+//        for(CompetitiveMember member : seniorCompMembers){
+//            System.out.println(member);
+//        }
+//    }
 
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());
+        if (age.getYears() < 18) {
+            juniorCompMembers.add(compMember);
+        } else if (age.getYears() <= 18) {
+            seniorCompMembers.add(compMember);
+        }
 
         if (age.getYears() < 18) {
             juniorCompMembers.add(compMember);
@@ -78,7 +81,6 @@ public class MemberManager {
             seniorCompMembers.add(compMember);
         }
     }
-
 
     public boolean setIsPaidForMember(String phoneNumber, boolean paid) {
         Member member = getMemberWithPhonenumber(phoneNumber);
@@ -122,6 +124,6 @@ public class MemberManager {
 
     @Override
     public String toString() {
-        return printMemberList();
+        return members.toString();
     }
 }
