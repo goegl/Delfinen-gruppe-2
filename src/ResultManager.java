@@ -11,15 +11,17 @@ public class ResultManager {
         this.trainingResults = new ArrayList<>();
     }
 
-    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, double resultTime,
+    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int resultMinutes,
+                                               int resultSeconds, int resultMilliseconds,
                                                LocalDate date){
-        TrainingResult trainingResult =  new TrainingResult(member, discipline, resultTime, date);
+        TrainingResult trainingResult =  new TrainingResult(member, discipline, resultMinutes, resultSeconds, resultMilliseconds, date);
         trainingResults.add(trainingResult);
         return trainingResult;
     }
     public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline,
-                                                          double resultTime, LocalDate date, String competitionName){
-        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, resultTime, date, competitionName);
+                                                     int resultMinutes, int resultSeconds, int resultMilliseconds,
+                                                     LocalDate date, String competitionName){
+        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, resultMinutes, resultSeconds, resultMilliseconds, date, competitionName);
         competitiveResults.add(competitiveResult);
         return competitiveResult;
     }
