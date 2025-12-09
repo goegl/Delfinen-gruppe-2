@@ -83,6 +83,18 @@ public class FileWriter {
             e.printStackTrace();
         }
     }
+
+//    public void writeResultsToCSV(List<MillisecondConvertable> results, String filepath){
+//        File file = new File(filepath);
+//        boolean fileExists = file.exists();
+//        try(java.io.FileWriter writer = new java.io.FileWriter(filepath, true)){
+//            if(!fileExists || file.length() == 0){
+//                writer.append("Svømmer, Fødselsdato, Disciplin, Distance, ")
+//            }
+//        }
+//    }
+
+
 }
 
 

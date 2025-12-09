@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -128,7 +129,7 @@ public class UserInterface {
         int millisekunder = inputSC.nextInt();
         System.out.println("Indtast Stævnenavn");
         String compettitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now(), compettitionName);
+        resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), compettitionName);
     }
 
     private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager) {
@@ -147,7 +148,7 @@ public class UserInterface {
         int millisekunder = inputSC.nextInt();
         System.out.println("Indtast Stævnenavn");
         String competitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now(), competitionName);
+        resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), competitionName);
     }
 
     private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
@@ -164,7 +165,7 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
-        resultManager.createTrainingResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now());
+        resultManager.createTrainingResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder), minutter, sekunder, millisekunder, LocalDate.now());
     }
 
     private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
@@ -181,7 +182,7 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
-        resultManager.createTrainingResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now());
+        resultManager.createTrainingResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder), minutter, sekunder, millisekunder, LocalDate.now());
     }
 
 
