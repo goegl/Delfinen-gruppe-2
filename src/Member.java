@@ -12,12 +12,12 @@ public class Member {
 
     public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus, boolean isPaid, LocalDate membershipStart) {
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.dateOfBirth = dateOfBirth;
         this.activeStatus = activeStatus;
-        this.membershipStart = membershipStart;
         this.isPaid = isPaid;
+        this.membershipStart = membershipStart;
     }
 
     public Member(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {

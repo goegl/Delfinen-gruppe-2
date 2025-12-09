@@ -179,7 +179,7 @@ public class UserInterface {
                 fileWriter.writeMemberToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
                 if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18) {
                     fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
-                } else if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) > 18)
+                } else if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) >= 18)
                     fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
                 break;
 
