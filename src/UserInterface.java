@@ -84,7 +84,7 @@ public class UserInterface {
 
                         //Case 2: Mark isPaid
                         case 2:
-                            markMemberisPaid(memberList);
+                            memberList.markMemberisPaid(memberList, inputSC);
                             break;
                         //Case 3: Print medlemmer i restance
                         case 3:
@@ -96,18 +96,7 @@ public class UserInterface {
         }
     }
 
-    private void markMemberisPaid(MemberManager memberList) {
-        System.out.println("Indtast telefonnummer på medlem:");
-        inputSC.nextLine();
-        String phoneNumber = inputSC.nextLine();
-        Member m = memberList.getMemberWithPhonenumber(phoneNumber);
-        if (m != null) {
-            m.setIsPaid(true);
-            System.out.println("Medlem med nummer " + phoneNumber + " er nu markeret som betalt.");
-        } else {
-            System.out.println("Intet medlem med det telefonnummer blev fundet.");
-        }
-    }
+
 
     //Method to only take String for name variable
     private String nameInputValidation() {

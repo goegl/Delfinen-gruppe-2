@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MemberManager {
     List<Member> members;
@@ -118,6 +119,19 @@ public class MemberManager {
             if (member.isPaid()) {
                 System.out.println(member);
             }
+        }
+    }
+
+    public void markMemberisPaid(MemberManager memberList, Scanner inputSC) {
+        System.out.println("Indtast telefonnummer på medlem:");
+        inputSC.nextLine();
+        String phoneNumber = inputSC.nextLine();
+        Member m = memberList.getMemberWithPhonenumber(phoneNumber);
+        if (m != null) {
+            m.setIsPaid(true);
+            System.out.println("Medlem med nummer " + phoneNumber + " er nu markeret som betalt.");
+        } else {
+            System.out.println("Intet medlem med det telefonnummer blev fundet.");
         }
     }
 
