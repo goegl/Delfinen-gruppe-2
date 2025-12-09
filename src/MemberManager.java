@@ -107,7 +107,16 @@ public class MemberManager {
         }
         return null;
     }
-    public CompetitiveMember getCompMemberWithPhonenumber(String phoneNumber, ArrayList<CompetitiveMember> compMemberList) {
+
+    public List<CompetitiveMember> getJuniorCompMembers() {
+        return juniorCompMembers;
+    }
+
+    public List<CompetitiveMember> getSeniorCompMembers() {
+        return seniorCompMembers;
+    }
+
+    public CompetitiveMember getCompMemberWithPhonenumber(String phoneNumber, List<CompetitiveMember> compMemberList) {
         for (CompetitiveMember m : compMemberList) {
             if (m.getPhoneNumber().equals(phoneNumber)) {
                 return m;

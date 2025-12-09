@@ -48,9 +48,11 @@ public class UserInterface {
                 case 3:
                     System.out.println("1. Vis Junior Hold");
                     System.out.println("2. Vis Senior Hold");
-                    System.out.println("3. Indtast Træningsresultat");
-                    System.out.println("4. Indtast StævneResultat");
-                    System.out.println("5. Vis Top 5");
+                    System.out.println("3. Indtast Træningsresultat for Junior");
+                    System.out.println("4. Indtast Træningsresultat for Senior");
+                    System.out.println("5. Indtast StævneResultat for Junior");
+                    System.out.println("6. Indtast StævneResultat for Senior");
+                    System.out.println("7. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
@@ -64,13 +66,11 @@ public class UserInterface {
                             fileReader.printCSVFile("SeniorCompetitiveMembers.CSV");
                             break;
                         case 3:
-                            System.out.println("Indtast telefonnummer på svømmeren");
-                            Member member = memberList.getMemberWithPhonenumber(inputSC.nextLine());
-                            Disciplines discipline = typeOfDiscipline();
-
-                            resultManager.createTrainingResult((CompetitiveMember) member, discipline, 1, 1, 1, LocalDate.now());
-
+                            createJuniorTrainingResult(memberList, resultManager);
+                            break;
                         case 4:
+                            createSeniorTrainingResult(memberList, resultManager);
+                            break;
 
                         default:
                             System.out.println("Ugyldigt Valg!");
@@ -107,6 +107,39 @@ public class UserInterface {
         }
     }
 
+    private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
+        System.out.println("Træningsresultat for Seniorsvømmer");
+        System.out.println("Indtast telefonnummer på svømmeren");
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(inputSC.nextLine(), memberList.getSeniorCompMembers());
+        System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
+        Disciplines discipline = typeOfDiscipline();
+        System.out.println("Indtast Distance");
+        int distance = inputSC.nextInt();
+        System.out.println("Indtast Minutter");
+        int minutter = inputSC.nextInt();
+        System.out.println("Indtast Sekunder");
+        int sekunder = inputSC.nextInt();
+        System.out.println("Indtast Millisekunder");
+        int millisekunder = inputSC.nextInt();
+        resultManager.createTrainingResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now());
+    }
+
+    private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
+        System.out.println("Træningsresultat for Juniorsvømmer");
+        System.out.println("Indtast telefonnummer på svømmeren");
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(inputSC.nextLine(), memberList.getJuniorCompMembers());
+        System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
+        Disciplines discipline = typeOfDiscipline();
+        System.out.println("Indtast Distance");
+        int distance = inputSC.nextInt();
+        System.out.println("Indtast Minutter");
+        int minutter = inputSC.nextInt();
+        System.out.println("Indtast Sekunder");
+        int sekunder = inputSC.nextInt();
+        System.out.println("Indtast Millisekunder");
+        int millisekunder = inputSC.nextInt();
+        resultManager.createTrainingResult(member, discipline, distance ,minutter, sekunder, millisekunder, LocalDate.now());
+    }
 
 
     //Method to only take String for name variable
@@ -129,8 +162,8 @@ public class UserInterface {
     }
 
     //Method to choose Discipline
-    public Disciplines typeOfDiscipline(){
-        while(true) {
+    public Disciplines typeOfDiscipline() {
+        while (true) {
             int input = inputSC.nextInt();
             if (input == 1) {
                 return Disciplines.CRAWL;
@@ -141,7 +174,7 @@ public class UserInterface {
             } else if (input == 4) {
                 return Disciplines.BUTTERFLY;
             } else
-            System.out.println("Der skal indtastes et tal 1-4");
+                System.out.println("Der skal indtastes et tal 1-4");
             continue;
         }
     }

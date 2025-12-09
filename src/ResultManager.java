@@ -11,18 +11,21 @@ public class ResultManager {
         this.trainingResults = new ArrayList<>();
     }
 
-    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int resultMinutes,
+    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int distance ,int resultMinutes,
                                                int resultSeconds, int resultMilliseconds,
                                                LocalDate date){
-        TrainingResult trainingResult =  new TrainingResult(member, discipline, resultMinutes, resultSeconds, resultMilliseconds, date);
+        TrainingResult trainingResult =  new TrainingResult(member, discipline, distance ,resultMinutes, resultSeconds, resultMilliseconds, date);
         trainingResults.add(trainingResult);
+        System.out.println(trainingResult);
         return trainingResult;
     }
-    public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline,
-                                                     int resultMinutes, int resultSeconds, int resultMilliseconds,
+    public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance
+                                                     ,int resultMinutes, int resultSeconds, int resultMilliseconds,
                                                      LocalDate date, String competitionName){
-        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, resultMinutes, resultSeconds, resultMilliseconds, date, competitionName);
+        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, distance ,resultMinutes, resultSeconds, resultMilliseconds, date, competitionName);
         competitiveResults.add(competitiveResult);
         return competitiveResult;
     }
+
+
 }
