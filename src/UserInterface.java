@@ -48,11 +48,11 @@ public class UserInterface {
                 //Træner menu
                 case 3:
                     System.out.println("1. Vis Junior Hold");
-                    System.out.println("2. Vis Senior Hold");
+                    System.out.println("2. Vis Senior Hold \n");
                     System.out.println("3. Indtast Træningsresultat for Junior");
                     System.out.println("4. Indtast Træningsresultat for Senior");
                     System.out.println("5. Indtast StævneResultat for Junior");
-                    System.out.println("6. Indtast StævneResultat for Senior");
+                    System.out.println("6. Indtast StævneResultat for Senior \n");
                     System.out.println("7. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
