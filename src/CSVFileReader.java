@@ -62,4 +62,41 @@ public class CSVFileReader implements Reader {
             System.out.println("Kunne ikke læse filen: " + e.getMessage());
         }
     }
+    public List<CompetitiveMember> readCompMemberFromCSV(String filepath){
+        List<CompetitiveMember> memberList = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String line;
+            reader.lines().skip(1);
+            if ((line = reader.readLine()) != null) {
+            }
+            while ((line = reader.readLine()) != null) {
+                CompetitiveMember member = parseCompetitiveMember(line);
+                memberList.add(member);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return memberList;
+    }
+    @NotNull
+    private static CompetitiveMember parseCompetitiveMember(String line){
+        String[] fields = line.split(",");
+
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = fields[i].trim();
+        }
+
+        String name = fields[0];
+        String phoneNumber = fields[1];
+        String address = fields[2];
+        boolean activeStatus = Boolean.parseBoolean(fields[3]);
+        LocalDate birthDate = LocalDate.parse(fields[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        return new CompetitiveMember(
+                name,
+                phoneNumber,
+                address,
+                birthDate,
+                activeStatus
+        );
+    }
 }

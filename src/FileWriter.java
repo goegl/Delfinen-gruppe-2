@@ -34,13 +34,13 @@ public class FileWriter {
         boolean fileExists = file.exists();
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if (!fileExists || file.length() == 0) {
-                writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
+                writer.append("Navn, Telefonnummer, Adresse, Fødselsdato, Aktiv Status" + "\n");
             }
             writer.append(member.getName()).append(",");
-            writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
             writer.append(member.getPhoneNumber()).append(",");
+            writer.append(member.getAddress()).append(",");
+            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
-
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
         } catch (IOException e) {
@@ -53,13 +53,13 @@ public class FileWriter {
         boolean fileExists = file.exists();
         try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
             if (!fileExists || file.length() == 0) {
-                writer.append("Navn, Alder, Telefonnummer, Discipliner, Aktiv Status" + "\n");
+                writer.append("Navn, Telefonnummer, Adresse, Fødselsdato, Aktiv Status" + "\n");
             }
             writer.append(member.getName()).append(",");
-            writer.append(member.getAgeToString(member.getDateOfBirth())).append(",");
             writer.append(member.getPhoneNumber()).append(",");
+            writer.append(member.getAddress()).append(",");
+            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
             writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
-
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
         } catch (IOException e) {

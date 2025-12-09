@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MemberManager {
-    List<Member> members;
-    List<CompetitiveMember> juniorCompMembers;
-    List<CompetitiveMember> seniorCompMembers;
+    private List<Member> members;
+    private List<CompetitiveMember> juniorCompMembers;
+    private List<CompetitiveMember> seniorCompMembers;
     private final MemberFee memberFeeCalculator = new MemberFee();
 
 
@@ -31,13 +31,14 @@ public class MemberManager {
         return competitiveMember;
     }
 
-    // Vi kan printe medlemslisten med printCSVFile i CSVFileReader klassen
-//    public void printMemberList() {
-//        for (Member member : members) {
-//            System.out.println(member);
-//        }
-//    }
-//
+     //Vi kan printe medlemslisten med printCSVFile i CSVFileReader klassen
+    public String printMemberList() {
+        for (Member member : members) {
+            System.out.println(member);
+        }
+        return "";
+    }
+
     public void printMembersInRestance() {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
@@ -54,6 +55,12 @@ public class MemberManager {
 
     public void addMembers(List<Member> membersFromFile) {
         members.addAll(membersFromFile);
+    }
+    public void  addJuniorCompetitiveMembers(List<CompetitiveMember> juniorMembersFromFile){
+        juniorCompMembers.addAll(juniorMembersFromFile);
+    }
+    public void addSeniorCompetitiveMembers(List<CompetitiveMember> seniorMembersFromFile){
+        seniorCompMembers.addAll(seniorMembersFromFile);
     }
 
 //    Gamle metoder jeg ikke kunne få til at virke i switch. Er erstattet med printCSVFile() metoden i CSVFileReader klassen
@@ -138,6 +145,6 @@ public class MemberManager {
 
     @Override
     public String toString() {
-        return members.toString();
+        return "" + printMemberList();
     }
 }

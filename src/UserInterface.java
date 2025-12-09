@@ -10,7 +10,7 @@ public class UserInterface {
         this.inputSC = new Scanner(System.in);
     }
 
-    public void createUI(MemberManager memberList, FileWriter fileWriter, CSVFileReader fileReader) {
+    public void createUI(MemberManager memberList, FileWriter fileWriter, CSVFileReader fileReader, ResultManager resultManager) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
@@ -48,7 +48,9 @@ public class UserInterface {
                 case 3:
                     System.out.println("1. Vis Junior Hold");
                     System.out.println("2. Vis Senior Hold");
-                    System.out.println("3. Vis Top 5");
+                    System.out.println("3. Indtast Træningsresultat");
+                    System.out.println("4. Indtast StævneResultat");
+                    System.out.println("5. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
@@ -61,6 +63,15 @@ public class UserInterface {
                             System.out.println("Delfinen's Senior Hold: ");
                             fileReader.printCSVFile("SeniorCompetitiveMembers.CSV");
                             break;
+                        case 3:
+                            System.out.println("Indtast telefonnummer på svømmeren");
+                            Member member = memberList.getMemberWithPhonenumber(inputSC.nextLine());
+                            Disciplines discipline = typeOfDiscipline();
+
+                            resultManager.createTrainingResult((CompetitiveMember) member, discipline, 1, 1, 1, LocalDate.now());
+
+                        case 4:
+
                         default:
                             System.out.println("Ugyldigt Valg!");
 
@@ -114,6 +125,24 @@ public class UserInterface {
             }
 
             return input;
+        }
+    }
+
+    //Method to choose Discipline
+    public Disciplines typeOfDiscipline(){
+        while(true) {
+            int input = inputSC.nextInt();
+            if (input == 1) {
+                return Disciplines.CRAWL;
+            } else if (input == 2) {
+                return Disciplines.BACKCRAWL;
+            } else if (input == 3) {
+                return Disciplines.BREASTSTROKE;
+            } else if (input == 4) {
+                return Disciplines.BUTTERFLY;
+            } else
+            System.out.println("Der skal indtastes et tal 1-4");
+            continue;
         }
     }
 
