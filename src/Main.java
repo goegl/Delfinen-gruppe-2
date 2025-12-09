@@ -4,14 +4,12 @@ public class Main {
     public static void main(String[] args) {
         MemberManager memberManager = new MemberManager();
         FileWriter fileManager = new FileWriter();
-        CSVFileReader csvReader = new CSVFileReader();
-//        List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
-//        memberManager.addMembers(loadedMembers);
-        //System.out.println("Antal medlemmer indlæst: " + memberManager.members.size());
-
+                CSVFileReader csvReader = new CSVFileReader();
+                List<Member> loadedMembers = csvReader.readMembersFromFile("Members.CSV");
+                memberManager.addMembers(loadedMembers);
         //Add members
         //Member andreas = new Member("Andreas", "12345678", "Vejen 1", LocalDate.of(1999, 2,5), 1, true);
-        // CompetitiveMember emil = new CompetitiveMember("Emil", "87654321", "Gaden", LocalDate.of(1920, 9, 5), 2, true);
+       // CompetitiveMember emil = new CompetitiveMember("Emil", "87654321", "Gaden", LocalDate.of(1920, 9, 5), 2, true);
 
 //
 //        System.out.println(andreas + "\n" + emil);

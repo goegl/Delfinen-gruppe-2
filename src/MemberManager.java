@@ -7,6 +7,7 @@ public class MemberManager {
     List<Member> members;
     List<CompetitiveMember> juniorCompMembers;
     List<CompetitiveMember> seniorCompMembers;
+    private final MemberFee memberFeeCalculator = new MemberFee();
 
 
     public MemberManager() {
@@ -40,7 +41,7 @@ public class MemberManager {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
         for (Member member : members) {
-            if (!member.IsPaid()) {
+            if (!member.isPaid()) {
                 System.out.println(member);
                 found = true;
             }
@@ -74,6 +75,11 @@ public class MemberManager {
             seniorCompMembers.add(compMember);
         }
 
+        if (age.getYears() < 18) {
+            juniorCompMembers.add(compMember);
+        } else {
+            seniorCompMembers.add(compMember);
+        }
     }
 
     public boolean setIsPaidForMember(String phoneNumber, boolean paid) {
@@ -93,6 +99,28 @@ public class MemberManager {
         }
         return null;
     }
+
+    public double getTotalMemberFeeForOneYear() {
+        double totalFee = 0.0;
+
+        for (Member member : members) {
+            totalFee += memberFeeCalculator.calculateFee(
+                    member.getActiveStatus(),
+                    member.getDateOfBirth()
+            );
+        }
+
+        return totalFee;
+    }
+
+    public void printMembersWhoHavePaid() {
+        for (Member member : members) {
+            if (member.isPaid()) {
+                System.out.println(member);
+            }
+        }
+    }
+
 
     @Override
     public String toString() {
