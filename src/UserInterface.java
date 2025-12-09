@@ -110,7 +110,7 @@ public class UserInterface {
     private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
         System.out.println("Træningsresultat for Seniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(inputSC.nextLine(), memberList.getSeniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
@@ -127,7 +127,7 @@ public class UserInterface {
     private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
         System.out.println("Træningsresultat for Juniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(inputSC.nextLine(), memberList.getJuniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
