@@ -89,7 +89,9 @@ public class UserInterface {
                 //Kasser Menu
                 case 4:
                     System.out.println("Vælg funktion \n" +
-                            "2. Vælg et medlem der har betalt \n");
+                            "1. Se årlig inkomst \n" +
+                            "2. Vælg et medlem der har betalt \n" +
+                            "3. Se medlemmer i restance \n");
                     switch (inputSC.nextInt()) {
                         //Case 1: begregn inkomst
                         case 1:
