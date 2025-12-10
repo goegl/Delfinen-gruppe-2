@@ -1,3 +1,3 @@
 Navn, Telefonnummer, Addresse, Aktiv Status, Fødselsdato, Har betalt, Oprettelsesdato
-Emil Andersen,12121212,Gaden 2,Er Aktiv,1998-07-05,true,2025-12-09
-Mads,22222222,Vejen 3,Er Aktiv,2010-10-10,true,2025-12-09
+Emil Andersen,12121212,Gaden 2,true,1998-07-05,true,2025-12-09
+Mads,22222222,Vejen 3,true,2010-10-10,true,2025-12-09

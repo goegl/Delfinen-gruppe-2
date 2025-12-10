@@ -50,8 +50,8 @@ public class Member {
 
     public String activeStatusToString(boolean activeStatus) {
         if (activeStatus == true) {
-            return "Er Aktiv";
-        } else return "Er Inaktiv";
+            return "true";
+        } else return "false";
     }
 
     public LocalDate getDateOfBirth() {

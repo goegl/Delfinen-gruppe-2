@@ -43,7 +43,7 @@ public class MemberManager {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
         for (Member member : members) {
-            if (!member.isPaid()) {
+            if (member.isPaid()) {
                 System.out.println(member);
                 found = true;
             }
