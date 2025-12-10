@@ -129,6 +129,7 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
+        inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String compettitionName = lettersAndNumbersInputValidation();
         resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), compettitionName);
@@ -148,6 +149,7 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
+        inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String competitionName = lettersAndNumbersInputValidation();
         resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), competitionName);

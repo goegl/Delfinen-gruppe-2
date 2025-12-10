@@ -24,5 +24,17 @@ public class CompetitiveResult implements MillisecondConvertable{
     public Long calculateResultInMilliseconds(int minutes, int seconds, int milliseconds) {
         return 0L;
     }
+
+    @Override
+    public String toString() {
+        return "CompetitiveResult{" +
+                "member=" + member.getName() +
+                ", discipline=" + discipline +
+                ", resultTime=" + resultTime +
+                ", distance=" + distance +
+                ", date=" + date +
+                ", competitionName='" + competitionName + '\'' +
+                '}';
+    }
 }
 
