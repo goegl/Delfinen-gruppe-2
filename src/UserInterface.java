@@ -273,12 +273,12 @@ public class UserInterface {
             inputSC.nextLine();
 
             if (status == 1) {
-                fileWriter.writeMemberToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "Members.CSV");
-                if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) < 18) {
-                    fileWriter.writeJuniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "JuniorCompetitiveMembers.CSV");
-                } else if (memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus).getAgeInt(dateOfBirth) >= 18)
-                    fileWriter.writeSeniorCompetitiveMembersToCSV(memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus), "SeniorCompetitiveMembers.CSV");
-                memberList.printMemberList();
+                CompetitiveMember competitiveMember = memberList.createCompetitiveMember(name, phone, address, dateOfBirth, activeStatus);
+                fileWriter.writeMemberToCSV(competitiveMember, "Members.CSV");
+                if (MemberFee.isJunior(dateOfBirth)) {
+                    fileWriter.writeJuniorCompetitiveMembersToCSV(competitiveMember, "JuniorCompetitiveMembers.CSV");
+                } else
+                    fileWriter.writeSeniorCompetitiveMembersToCSV(competitiveMember, "SeniorCompetitiveMembers.CSV");
                 break;
 
             } else if (status == 2) {
