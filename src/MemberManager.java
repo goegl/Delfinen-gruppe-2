@@ -43,7 +43,7 @@ public class MemberManager {
         System.out.println("Medlemmer der ikke har betalt:");
         boolean found = false;
         for (Member member : members) {
-            if (member.isPaid()) {
+            if (!member.isPaid()) {
                 System.out.println(member);
                 found = true;
             }
@@ -139,11 +139,10 @@ public class MemberManager {
     }
 
     public void printMembersWhoHavePaid() {
-        for (Member member : members) {
-            if (member.isPaid()) {
+        for (Member member : members)
+            if (member.isPaid() == true) {
                 System.out.println(member);
             }
-        }
     }
 
     public void markMemberisPaid(MemberManager memberList, Scanner inputSC) {
