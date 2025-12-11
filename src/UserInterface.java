@@ -83,7 +83,7 @@ public class UserInterface {
                             createSeniorCompResult(memberList, resultManager, fileWriter);
                             break;
                         case 7:
-                            fileReader.printCSVFile("Results.CSV");
+                            resultManager.printAllResults();
                             break;
                         default:
                             System.out.println("Ugyldigt Valg!");
