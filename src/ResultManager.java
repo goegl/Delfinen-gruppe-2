@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ResultManager {
-    private List<Result> allResults = new ArrayList<>();
+    private List<MillisecondConvertable> allResults = new ArrayList<>();
     private List<TrainingResult> trainingResults;
     private List<CompetitiveResult> competitiveResults;
 

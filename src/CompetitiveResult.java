@@ -1,11 +1,18 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class CompetitiveResult extends Result implements MillisecondConvertable{
+public class CompetitiveResult implements MillisecondConvertable{
+    CompetitiveMember member;
+    Disciplines discipline;
+    int distance;
+    LocalDate date;
+    LocalTime resultTime;
     String competitionName;
 
     public CompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes, int resultSeconds, int resultMilliseconds, LocalTime resultTime ,LocalDate date, String competitionName) {
-        super(member, discipline, distance, resultTime ,date);
+        this.member = member;
+        this.discipline = discipline;
+        this.distance = distance;
         this.resultTime = LocalTime.of(0, resultMinutes, resultSeconds, resultMilliseconds);
         this.competitionName = competitionName;
     }

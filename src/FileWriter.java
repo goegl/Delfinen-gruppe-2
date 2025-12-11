@@ -89,7 +89,7 @@ public class FileWriter {
         }
     }
 
-    public void writeResultToCSV(Result result, String filepath) {
+    public void writeResultToCSV(MillisecondConvertable result, String filepath) {
         File file = new File(filepath);
         boolean fileExists = file.exists();
 
