@@ -1,3 +1,5 @@
+import MemberFee.MemberFee;
+
 import java.time.LocalDate;
 
 public class Member {

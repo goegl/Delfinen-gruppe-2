@@ -1,3 +1,5 @@
+import MemberFee.MemberFee;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class MemberManager {
         boolean found = false;
         for (Member member : members) {
             if (!member.isPaid()) {
-                System.out.println(member);
+                System.out.println(""+member.getName() + ": " +  "Kontingentsats: " + member.getMemberFee() + " Kr.");
                 found = true;
             }
         }

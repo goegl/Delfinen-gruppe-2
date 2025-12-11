@@ -1,5 +1,6 @@
+import MemberFee.MemberFee;
+
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class CompetitiveResult implements MillisecondConvertable{
     private CompetitiveMember member;

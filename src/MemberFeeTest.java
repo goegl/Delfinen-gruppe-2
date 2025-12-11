@@ -1,3 +1,4 @@
+import MemberFee.MemberFee;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
