@@ -106,4 +106,16 @@ public class CSVFileReader implements Reader {
                 activeStatus
         );
     }
+
+//    public class readResultsFromCSV {
+//        public  List<String[]> readResults(String filepath) {
+//            List<String[]> rows =
+//
+//            try {BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+//
+//            }
+//
+//            }
+//        }
+//    }
 }
