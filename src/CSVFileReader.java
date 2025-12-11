@@ -131,26 +131,47 @@ public class CSVFileReader implements Reader {
         for (int i = 0; i < fields.length; i++) {
             fields[i] = fields[i].trim();
         }
+        CompetitiveMember member;
+        if(memberManager.getCompMemberWithPhonenumber(fields[2], memberManager.getJuniorCompMembers()) != null){
+            member = memberManager.getCompMemberWithPhonenumber(fields[2], memberManager.getJuniorCompMembers());
+        } else member = memberManager.getCompMemberWithPhonenumber(fields[2], memberManager.getSeniorCompMembers());
 
-        String phoneNumber = fields[2];
-        Disciplines disciplin = Disciplines.valueOf(fields[3]);
-        int distance = Integer.parseInt(fields[4]);
-        String resultTime = fields[5];
-        int minutes = Integer.parseInt(resultTime.substring(0, 1));
-        int seconds = Integer.parseInt(resultTime.substring(3, 4));
-        int millis = Integer.parseInt(resultTime.substring(6, 8));
-        LocalDate date = LocalDate.parse(fields[6]);
-        String competitionName = fields [7];
-        return new CompetitiveResult(memberManager.getCompMemberWithPhonenumber(phoneNumber, (List<CompetitiveMember>) memberManager),
-        disciplin,
-        distance,
-        minutes,
-        seconds,
-        millis,
-        resultTime,
-        date,
-        competitionName);
+        if(fields[7].matches("Træning")){
+            Disciplines disciplin = Disciplines.valueOf(fields[3]);
+            int distance = Integer.parseInt(fields[4]);
+            String resultTime = fields[5];
+            int minutes = Integer.parseInt(resultTime.substring(0, 1));
+            int seconds = Integer.parseInt(resultTime.substring(3, 4));
+            int millis = Integer.parseInt(resultTime.substring(6, 8));
+            LocalDate date = LocalDate.parse(fields[6]);
 
+            return new TrainingResult(member,
+                    disciplin,
+                    distance,
+                    minutes,
+                    seconds,
+                    millis,
+                    resultTime,
+                    date);
+        } else {
+            Disciplines disciplin = Disciplines.valueOf(fields[3]);
+            int distance = Integer.parseInt(fields[4]);
+            String resultTime = fields[5];
+            int minutes = Integer.parseInt(resultTime.substring(0, 1));
+            int seconds = Integer.parseInt(resultTime.substring(3, 4));
+            int millis = Integer.parseInt(resultTime.substring(6, 8));
+            LocalDate date = LocalDate.parse(fields[6]);
+            String competitionName = fields[7];
+            return new CompetitiveResult(member,
+                    disciplin,
+                    distance,
+                    minutes,
+                    seconds,
+                    millis,
+                    resultTime,
+                    date,
+                    competitionName);
+        }
 
     }
 

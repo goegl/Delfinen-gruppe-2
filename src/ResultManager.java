@@ -1,17 +1,16 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ResultManager {
-    private List<MillisecondConvertable> allResults = new ArrayList<>();
+    private List<MillisecondConvertable> allResults;
     private List<TrainingResult> trainingResults;
     private List<CompetitiveResult> competitiveResults;
 
     public ResultManager() {
         this.competitiveResults = new ArrayList<>();
         this.trainingResults = new ArrayList<>();
+        this.allResults = new ArrayList<>();
     }
 
     public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes,
@@ -23,7 +22,7 @@ public class ResultManager {
         fileWriter.writeResultToCSV(trainingResult, "Results.CSV");
         return trainingResult;
     }
-    public void addResults(List<MillisecondConvertable> resultsFromFile) {
+    public void addToAllResults(List<MillisecondConvertable> resultsFromFile) {
         allResults.addAll(resultsFromFile);
     }
 
@@ -35,6 +34,10 @@ public class ResultManager {
         allResults.add(competitiveResult);
         fileWriter.writeResultToCSV(competitiveResult, "Results.CSV");
         return competitiveResult;
+    }
+
+    public List<MillisecondConvertable> getAllResults() {
+        return allResults;
     }
 
     public void printTrainingResults() {

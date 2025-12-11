@@ -98,26 +98,26 @@ public class FileWriter {
             }
 
             if (result instanceof TrainingResult trainingResult) {
-                writer.append("Træning,");
+                writer.append("Træning").append(",");
                 writer.append(trainingResult.member.getName()).append(",");
                 writer.append(trainingResult.member.getPhoneNumber()).append(",");
                 writer.append(trainingResult.discipline.toString()).append(",");
                 writer.append(String.valueOf(trainingResult.distance)).append(",");
                 writer.append(trainingResult.getResultTime()).append(",");
                 writer.append(trainingResult.date.toString()).append(",");
-                writer.append("Træning");
-                writer.append("\n");
+                writer.append("Træning").append("\n");
+
 
             } else if (result instanceof CompetitiveResult competitiveResult) {
-                writer.append("Konkurrence,");
+                writer.append("Konkurrence").append(",");
                 writer.append(competitiveResult.member.getName()).append(",");
                 writer.append(competitiveResult.member.getPhoneNumber()).append(",");
                 writer.append(competitiveResult.discipline.toString()).append(",");
                 writer.append(String.valueOf(competitiveResult.distance)).append(",");
                 writer.append(competitiveResult.getResultTime()).append(",");
                 writer.append(competitiveResult.date.toString()).append(",");
-                writer.append(competitiveResult.competitionName);
-                writer.append("\n");
+                writer.append(competitiveResult.competitionName).append("\n");
+
             }
 
         }   catch (IOException e) {

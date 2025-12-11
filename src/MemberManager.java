@@ -108,6 +108,10 @@ public class MemberManager {
         return null;
     }
 
+    public List<Member> getMembers() {
+        return members;
+    }
+
     public List<CompetitiveMember> getJuniorCompMembers() {
         return juniorCompMembers;
     }
