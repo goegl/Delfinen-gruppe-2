@@ -16,7 +16,7 @@ public class ResultManager {
 
     public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes,
                                                int resultSeconds, int resultMilliseconds,
-                                               LocalDate date, LocalTime resultTime ,FileWriter fileWriter) {
+                                               LocalDate date, String resultTime ,FileWriter fileWriter) {
         TrainingResult trainingResult = new TrainingResult(member, discipline, distance, resultMinutes, resultSeconds, resultMilliseconds, resultTime ,date);
         trainingResults.add(trainingResult);
         allResults.add(trainingResult);
@@ -26,7 +26,7 @@ public class ResultManager {
 
     public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance
             , int resultMinutes, int resultSeconds, int resultMilliseconds,
-                                                     LocalDate date, LocalTime resultTime , String competitionName, FileWriter fileWriter) {
+                                                     LocalDate date, String resultTime , String competitionName, FileWriter fileWriter) {
         CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, distance, resultMinutes, resultSeconds, resultMilliseconds, resultTime ,date, competitionName);
         competitiveResults.add(competitiveResult);
         allResults.add(competitiveResult);

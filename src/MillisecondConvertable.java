@@ -1,3 +1,3 @@
 public interface MillisecondConvertable {
-    Long calculateResultInMilliseconds();
+    Long calculateResultInMilliseconds(int minutes, int seconds, int milliseconds);
 }

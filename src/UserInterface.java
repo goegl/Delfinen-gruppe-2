@@ -131,16 +131,16 @@ public class UserInterface {
         System.out.println("Indtast Distance");
         int distance = inputSC.nextInt();
         System.out.println("Indtast Minutter");
-        int minutter = inputSC.nextInt();
+        int minutes = inputSC.nextInt();
         System.out.println("Indtast Sekunder");
-        int sekunder = inputSC.nextInt();
+        int seconds = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
-        int millisekunder = inputSC.nextInt();
-        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
+        int millis = inputSC.nextInt();
+        String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String compettitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime, compettitionName, fileWriter);
+        resultManager.createCompetitiveResult(member, discipline, distance, minutes, seconds, millis, LocalDate.now(), resultTime, compettitionName, fileWriter);
     }
 
     private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
@@ -152,16 +152,16 @@ public class UserInterface {
         System.out.println("Indtast Distance");
         int distance = inputSC.nextInt();
         System.out.println("Indtast Minutter");
-        int minutter = inputSC.nextInt();
+        int minutes = inputSC.nextInt();
         System.out.println("Indtast Sekunder");
-        int sekunder = inputSC.nextInt();
+        int seconds = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
-        int millisekunder = inputSC.nextInt();
-        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
+        int millis = inputSC.nextInt();
+        String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String competitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance, minutter, sekunder, millisekunder ,LocalDate.now(), resultTime ,competitionName, fileWriter);
+        resultManager.createCompetitiveResult(member, discipline, distance, minutes, seconds, millis ,LocalDate.now(), resultTime ,competitionName, fileWriter);
     }
 
     private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
@@ -173,13 +173,13 @@ public class UserInterface {
         System.out.println("Indtast Distance");
         int distance = inputSC.nextInt();
         System.out.println("Indtast Minutter");
-        int minutter = inputSC.nextInt();
+        int minutes = inputSC.nextInt();
         System.out.println("Indtast Sekunder");
-        int sekunder = inputSC.nextInt();
+        int seconds = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
-        int millisekunder = inputSC.nextInt();
-        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
-        resultManager.createTrainingResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime ,fileWriter);
+        int millis = inputSC.nextInt();
+        String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
+        resultManager.createTrainingResult(member, discipline, distance, minutes, seconds, millis, LocalDate.now(), resultTime ,fileWriter);
     }
 
     private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
@@ -191,13 +191,13 @@ public class UserInterface {
         System.out.println("Indtast Distance");
         int distance = inputSC.nextInt();
         System.out.println("Indtast Minutter");
-        int minutter = inputSC.nextInt();
+        int minutes = inputSC.nextInt();
         System.out.println("Indtast Sekunder");
-        int sekunder = inputSC.nextInt();
+        int seconds = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
-        int millisekunder = inputSC.nextInt();
-        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
-        resultManager.createTrainingResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime, fileWriter);
+        int millis = inputSC.nextInt();
+        String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
+        resultManager.createTrainingResult(member, discipline, distance, minutes, seconds, millis, LocalDate.now(), resultTime, fileWriter);
 
     }
 

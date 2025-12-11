@@ -103,7 +103,7 @@ public class FileWriter {
                 writer.append(trainingResult.member.getPhoneNumber()).append(",");
                 writer.append(trainingResult.discipline.toString()).append(",");
                 writer.append(String.valueOf(trainingResult.distance)).append(",");
-                writer.append(String.valueOf(trainingResult.calculateResultInMilliseconds())).append(",");
+                writer.append(trainingResult.getResultTime()).append(",");
                 writer.append(trainingResult.date.toString()).append(",");
                 writer.append("");
                 writer.append("\n");
@@ -114,7 +114,7 @@ public class FileWriter {
                 writer.append(competitiveResult.member.getPhoneNumber()).append(",");
                 writer.append(competitiveResult.discipline.toString()).append(",");
                 writer.append(String.valueOf(competitiveResult.distance)).append(",");
-                writer.append(String.valueOf(competitiveResult.calculateResultInMilliseconds())).append(",");
+                writer.append(competitiveResult.getResultTime()).append(",");
                 writer.append(competitiveResult.date.toString()).append(",");
                 writer.append(competitiveResult.competitionName);
                 writer.append("\n");
