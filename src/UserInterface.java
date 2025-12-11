@@ -19,7 +19,8 @@ public class UserInterface {
             System.out.println("1. Opret Medlem\n" +
                     "2. Medlems Oversigt\n" +
                     "3. Træner Menu\n" +
-                    "4. Kasser Menu \n");
+                    "4. Kasser Menu \n" +
+                    "5. Luk Program \n");
 
 
             int createMember = inputSC.nextInt();
@@ -117,6 +118,11 @@ public class UserInterface {
 
                             break;
                     }
+                case 5:
+                    System.out.println("Programmet Lukkes...");
+                    inputSC.close();
+                    System.exit(0);
+                    break;
             }
         }
     }
