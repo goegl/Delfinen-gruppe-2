@@ -109,7 +109,9 @@ public class UserInterface {
 
                         //Case 2: Mark isPaid
                         case 2:
-                            memberList.markMemberisPaid(memberList, inputSC);
+                            System.out.println("Indtast telefonnummer på medlem:");
+                            String phoneNumber = phoneNumberInputValidation(inputSC);
+                            memberList.markMemberisPaid(memberList, phoneNumber);
                             break;
                         //Case 3: Print medlemmer i restance
                         case 3:

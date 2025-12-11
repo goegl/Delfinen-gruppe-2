@@ -153,9 +153,8 @@ public class MemberManager {
             }
     }
 
-    public void markMemberisPaid(MemberManager memberList, Scanner inputSC) {
-        System.out.println("Indtast telefonnummer på medlem:");
-        String phoneNumber = inputSC.nextLine();
+    public void markMemberisPaid(MemberManager memberList, String phoneNumber) {
+
         Member m = memberList.getMemberWithPhonenumber(phoneNumber);
         if (m != null) {
             m.setIsPaid(true);
