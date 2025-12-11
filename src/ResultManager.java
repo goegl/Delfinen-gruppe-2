@@ -47,7 +47,9 @@ public class ResultManager {
     }
 
     public void printSortedResults() {
-        System.out.println(sortResults(allResults).toString());
+        for(MillisecondConvertable result : sortResults(allResults)){
+            System.out.println(result);
+        }
 
     }
 
