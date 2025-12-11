@@ -36,9 +36,9 @@ public class UserInterface {
                     String address = lettersAndNumbersInputValidation();
                     System.out.println("Indtast fødselsdag");
                     LocalDate dateOfBirth = inputDateOfBirth(inputSC);
-                    System.out.println("Aktivt medlemsskab?");
+                    System.out.println("Aktivt medlemsskab? 1 = Ja: 2 = Nej");
                     boolean activeStatus = isActiveStatus();
-                    System.out.println("Er du konkurrence svømmer?");
+                    System.out.println("Er du konkurrence svømmer? 1 = ja: 2 = Nej");
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true, fileWriter);
                     break;
 
