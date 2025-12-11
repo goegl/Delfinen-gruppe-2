@@ -133,13 +133,13 @@ public class UserInterface {
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
-        int distance = inputSC.nextInt();
+        int distance = numberInputValidation(inputSC);
         System.out.println("Indtast Minutter");
-        int minutes = inputSC.nextInt();
+        int minutes = numberInputValidation(inputSC);
         System.out.println("Indtast Sekunder");
-        int seconds = inputSC.nextInt();
+        int seconds = numberInputValidation(inputSC);
         System.out.println("Indtast Millisekunder");
-        int millis = inputSC.nextInt();
+        int millis = numberInputValidation(inputSC);
         String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
@@ -154,13 +154,13 @@ public class UserInterface {
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
-        int distance = inputSC.nextInt();
+        int distance = numberInputValidation(inputSC);
         System.out.println("Indtast Minutter");
-        int minutes = inputSC.nextInt();
+        int minutes = numberInputValidation(inputSC);
         System.out.println("Indtast Sekunder");
-        int seconds = inputSC.nextInt();
+        int seconds = numberInputValidation(inputSC);
         System.out.println("Indtast Millisekunder");
-        int millis = inputSC.nextInt();
+        int millis = numberInputValidation(inputSC);
         String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
@@ -175,13 +175,13 @@ public class UserInterface {
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
-        int distance = inputSC.nextInt();
+        int distance = numberInputValidation(inputSC);
         System.out.println("Indtast Minutter");
-        int minutes = inputSC.nextInt();
+        int minutes = numberInputValidation(inputSC);
         System.out.println("Indtast Sekunder");
-        int seconds = inputSC.nextInt();
+        int seconds = numberInputValidation(inputSC);
         System.out.println("Indtast Millisekunder");
-        int millis = inputSC.nextInt();
+        int millis = numberInputValidation(inputSC);
         String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         resultManager.createTrainingResult(member, discipline, distance, minutes, seconds, millis, LocalDate.now(), resultTime ,fileWriter);
     }
@@ -192,14 +192,14 @@ public class UserInterface {
         CompetitiveMember member = memberList.getCompMemberWithPhonenumber(phoneNumberInputValidation(inputSC), memberList.getJuniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
-        System.out.println("Indtast Distance");
-        int distance = inputSC.nextInt();
+        System.out.println("Indtast Distance i Meter");
+        int distance = numberInputValidation(inputSC);
         System.out.println("Indtast Minutter");
-        int minutes = inputSC.nextInt();
+        int minutes = numberInputValidation(inputSC);
         System.out.println("Indtast Sekunder");
-        int seconds = inputSC.nextInt();
+        int seconds = numberInputValidation(inputSC);
         System.out.println("Indtast Millisekunder");
-        int millis = inputSC.nextInt();
+        int millis = numberInputValidation(inputSC);
         String resultTime = String.format("%02d:%02d:%03d", minutes, seconds, millis);
         resultManager.createTrainingResult(member, discipline, distance, minutes, seconds, millis, LocalDate.now(), resultTime, fileWriter);
 
@@ -283,6 +283,10 @@ public class UserInterface {
     private static int numberInputValidation(Scanner inputSC) {
         while (true) {
             String input = inputSC.nextLine();
+
+            if (input.isEmpty()) {
+                continue;
+            }
 
             if (!input.matches("^[0-9]+$")) {
                 System.out.println("Kun tal bliver accepteret. Prøv igen:");
