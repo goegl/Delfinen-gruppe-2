@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class TrainingResult implements MillisecondConvertable {
     private CompetitiveMember member;
