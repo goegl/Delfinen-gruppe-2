@@ -24,8 +24,7 @@ public class UserInterface {
                     "5. Luk Program \n");
 
 
-            int createMember = inputSC.nextInt();
-            inputSC.nextLine();
+            int createMember = numberInputValidation(inputSC);
             switch (createMember) {
                 case 1:
                     System.out.println("Indtast navn");
@@ -60,8 +59,7 @@ public class UserInterface {
                     System.out.println("7. Vis alle resultater sorteret");
                     System.out.println("8. Vis Top 5");
 
-                    int trainerChoice = inputSC.nextInt();
-                    inputSC.nextLine();
+                    int trainerChoice = numberInputValidation(inputSC);
                     switch (trainerChoice) {
                         case 1:
                             System.out.println("Delfinen's Junior Hold: ");
@@ -102,7 +100,7 @@ public class UserInterface {
                             "1. Se årlig inkomst \n" +
                             "2. Vælg et medlem der har betalt \n" +
                             "3. Se medlemmer i restance \n");
-                    switch (inputSC.nextInt()) {
+                    switch (numberInputValidation(inputSC)) {
                         //Case 1: begregn inkomst
                         case 1:
                             double total = memberList.getTotalMemberFeeForOneYear();
@@ -118,7 +116,7 @@ public class UserInterface {
                             memberList.printMembersInRestance();
 
                             break;
-                    }
+                    } break;
                 case 5:
                     System.out.println("Programmet Lukkes...");
                     inputSC.close();
@@ -282,6 +280,19 @@ public class UserInterface {
             return input;
         }
     }
+    private static int numberInputValidation(Scanner inputSC) {
+        while (true) {
+            String input = inputSC.nextLine();
+
+            if (!input.matches("^[0-9]+$")) {
+                System.out.println("Kun tal bliver accepteret. Prøv igen:");
+                continue;
+            }
+
+            return Integer.parseInt(input);
+        }
+    }
+
 
 
     private void typeOfMember(MemberManager memberList, String name, String phone, String address,
