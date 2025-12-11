@@ -53,7 +53,10 @@ public class UserInterface {
                     System.out.println("4. Indtast Træningsresultat for Senior");
                     System.out.println("5. Indtast StævneResultat for Junior");
                     System.out.println("6. Indtast StævneResultat for Senior \n");
-                    System.out.println("7. Vis Top 5");
+                    System.out.println("7. Vis Resultater");
+                    System.out.println("8. Vis Trænings Resultater");
+                    System.out.println("9. Vis Konkurrence Resultater\n");
+                    System.out.println("9. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
@@ -67,16 +70,20 @@ public class UserInterface {
                             fileReader.printCSVFile("SeniorCompetitiveMembers.CSV");
                             break;
                         case 3:
-                            createJuniorTrainingResult(memberList, resultManager);
+                            createJuniorTrainingResult(memberList, resultManager, fileWriter);
                             break;
                         case 4:
-                            createSeniorTrainingResult(memberList, resultManager);
+                            createSeniorTrainingResult(memberList, resultManager, fileWriter);
                             break;
                         case 5:
-                            createJuniorCompResult(memberList, resultManager);
+                            createJuniorCompResult(memberList, resultManager, fileWriter);
                             break;
                         case 6:
-                            createSeniorCompResult(memberList, resultManager);
+                            createSeniorCompResult(memberList, resultManager, fileWriter);
+                            break;
+                        case 7:
+                            System.out.println("Træningsresultater: \n");
+                            fileReader.printCSVFile("Results.CSV");
                             break;
                         default:
                             System.out.println("Ugyldigt Valg!");
@@ -115,7 +122,7 @@ public class UserInterface {
         }
     }
 
-    private void createSeniorCompResult(MemberManager memberList, ResultManager resultManager) {
+    private void createSeniorCompResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Seniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
         CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
@@ -129,13 +136,14 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
+        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String compettitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), compettitionName);
+        resultManager.createCompetitiveResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime, compettitionName, fileWriter);
     }
 
-    private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager) {
+    private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Stævneresultat for Juniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
         CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
@@ -149,13 +157,14 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
+        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
         inputSC.nextLine();
         System.out.println("Indtast Stævnenavn");
         String competitionName = lettersAndNumbersInputValidation();
-        resultManager.createCompetitiveResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder) ,minutter, sekunder, millisekunder, LocalDate.now(), competitionName);
+        resultManager.createCompetitiveResult(member, discipline, distance, minutter, sekunder, millisekunder ,LocalDate.now(), resultTime ,competitionName, fileWriter);
     }
 
-    private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
+    private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Seniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
         CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
@@ -169,10 +178,11 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
-        resultManager.createTrainingResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder), minutter, sekunder, millisekunder, LocalDate.now());
+        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
+        resultManager.createTrainingResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime ,fileWriter);
     }
 
-    private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager) {
+    private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Juniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
         CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
@@ -186,7 +196,9 @@ public class UserInterface {
         int sekunder = inputSC.nextInt();
         System.out.println("Indtast Millisekunder");
         int millisekunder = inputSC.nextInt();
-        resultManager.createTrainingResult(member, discipline, distance, LocalTime.of(0, minutter, sekunder, millisekunder), minutter, sekunder, millisekunder, LocalDate.now());
+        LocalTime resultTime = LocalTime.of(0, minutter, sekunder, millisekunder);
+        resultManager.createTrainingResult(member, discipline, distance, minutter, sekunder, millisekunder, LocalDate.now(), resultTime, fileWriter);
+
     }
 
 
@@ -210,7 +222,7 @@ public class UserInterface {
     }
 
     //Method to choose Discipline
-    public Disciplines typeOfDiscipline() {
+    public Disciplines typeOfDiscipline()   {
         while (true) {
             int input = inputSC.nextInt();
             if (input == 1) {

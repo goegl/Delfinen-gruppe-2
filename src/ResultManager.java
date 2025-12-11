@@ -2,8 +2,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ResultManager {
+    private List<Result> allResults = new ArrayList<>();
     private List<TrainingResult> trainingResults;
     private List<CompetitiveResult> competitiveResults;
 
@@ -12,22 +14,40 @@ public class ResultManager {
         this.trainingResults = new ArrayList<>();
     }
 
-    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int distance, LocalTime resultTime , int resultMinutes,
+    public TrainingResult createTrainingResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes,
                                                int resultSeconds, int resultMilliseconds,
-                                               LocalDate date){
-        TrainingResult trainingResult =  new TrainingResult(member, discipline, distance ,resultTime, resultMinutes, resultSeconds, resultMilliseconds, date);
+                                               LocalDate date, LocalTime resultTime ,FileWriter fileWriter) {
+        TrainingResult trainingResult = new TrainingResult(member, discipline, distance, resultMinutes, resultSeconds, resultMilliseconds, resultTime ,date);
         trainingResults.add(trainingResult);
-        System.out.println(trainingResult);
+        allResults.add(trainingResult);
+        fileWriter.writeResultToCSV(trainingResult, "Results.CSV");
         return trainingResult;
     }
-    public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance, LocalTime resultTime
-                                                     ,int resultMinutes, int resultSeconds, int resultMilliseconds,
-                                                     LocalDate date, String competitionName){
-        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, distance, resultTime ,resultMinutes, resultSeconds, resultMilliseconds, date, competitionName);
+
+    public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance
+            , int resultMinutes, int resultSeconds, int resultMilliseconds,
+                                                     LocalDate date, LocalTime resultTime , String competitionName, FileWriter fileWriter) {
+        CompetitiveResult competitiveResult = new CompetitiveResult(member, discipline, distance, resultMinutes, resultSeconds, resultMilliseconds, resultTime ,date, competitionName);
         competitiveResults.add(competitiveResult);
-        System.out.println(competitiveResult);
+        allResults.add(competitiveResult);
+        fileWriter.writeResultToCSV(competitiveResult, "Results.CSV");
         return competitiveResult;
     }
 
+    public void printTrainingResults() {
+        System.out.println("Trænings Resultater: \n " + trainingResults);
+
+        for (TrainingResult trainingResult : trainingResults) {
+            System.out.println(trainingResult);
+        }
+    }
+
+    public void printCompResults() {
+        System.out.println("Konkurrence Resultater: \n" + competitiveResults);
+
+        for (CompetitiveResult competitiveResult : competitiveResults) {
+            System.out.println(competitiveResult);
+        }
+    }
 
 }
