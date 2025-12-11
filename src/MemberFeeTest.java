@@ -10,7 +10,7 @@ class MemberFeeTest {
     void calculateInactiveMemberFee() {
         MemberFee fee  = new MemberFee();
         double result = fee.calculateFee(false, LocalDate.of(1900,12,29));
-        assertEquals(result, 500);
+        assertEquals(500, result);
     }
     @Test
     void calculateActiveSeniorMemberFee() {

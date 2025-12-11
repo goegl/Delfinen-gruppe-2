@@ -25,6 +25,22 @@ public class TrainingResult implements MillisecondConvertable {
         return minutes * 60_000L + seconds * 1_000L + milliseconds;
     }
 
+    public CompetitiveMember getMember() {
+        return member;
+    }
+
+    public Disciplines getDiscipline() {
+        return discipline;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
     public String toString() {
         return  "Træning: " +
                 "Svømmer: " + member.getName() + "," +
