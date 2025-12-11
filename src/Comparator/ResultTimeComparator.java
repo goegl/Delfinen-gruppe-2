@@ -1,3 +1,5 @@
+package Comparator;
+
 import java.util.Comparator;
 
 public class ResultTimeComparator implements Comparator<MillisecondConvertable> {

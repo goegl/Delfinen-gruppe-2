@@ -1,9 +1,10 @@
+import Comparator.Disciplines;
+import Comparator.MillisecondConvertable;
 import MemberFee.MemberFee;
 import Member.CompetitiveMember;
 import java.time.LocalDate;
-import Member.*;
 
-public class CompetitiveResult implements MillisecondConvertable{
+public class CompetitiveResult implements MillisecondConvertable {
     private CompetitiveMember member;
     private Disciplines discipline;
     private int distance;

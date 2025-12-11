@@ -1,4 +1,7 @@
+import Comparator.MillisecondConvertable;
+
 import java.util.Comparator;
+import java.util.Comparator.*;
 
 public class ResultAgeComparator implements Comparator<MillisecondConvertable> {
 

@@ -1,3 +1,5 @@
+package Comparator;
+
 public interface MillisecondConvertable {
     Long calculateResultInMilliseconds(int minutes, int seconds, int milliseconds);
     Disciplines getDisciplineFromInterface(MillisecondConvertable result);
