@@ -25,6 +25,34 @@ public class TrainingResult implements MillisecondConvertable {
         return minutes * 60_000L + seconds * 1_000L + milliseconds;
     }
 
+    public int calculateResultMinutes(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[0]);
+    }
+    public int calculateResultSeconds(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[1]);
+    }
+    public int calculateResultMillis(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[2]);
+    }
+
+    @Override
+    public String getResultTimeFromResult(MillisecondConvertable result) {
+        return getResultTime();
+    }
+
+    @Override
+    public Disciplines getDisciplineFromInterface(MillisecondConvertable result) {
+        return getDiscipline();
+    }
+
+    @Override
+    public int getAgeOfMemberFromResult(MillisecondConvertable result) {
+        return MemberFee.calculateAge(getMember().getDateOfBirth());
+    }
+
     public CompetitiveMember getMember() {
         return member;
     }

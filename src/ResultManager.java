@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ResultManager {
@@ -43,10 +44,8 @@ public class ResultManager {
             System.out.println(results);
         }
     }
-    public Disciplines getDisciplinesFromResults(List<MillisecondConvertable> results){
-            results.get(0);
 
-
-
+    public void sortResults(List<MillisecondConvertable> results){
+        Collections.sort(results, new ResultChainedComparator(new ResultDisciplineComparator(), new ResultAgeComparator(), new ResultTimeComparator()));
     }
 }

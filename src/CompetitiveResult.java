@@ -27,6 +27,52 @@ public class CompetitiveResult implements MillisecondConvertable{
         return minutes * 60_000L + seconds * 1_000L + milliseconds;
     }
 
+    public CompetitiveMember getMember() {
+        return member;
+    }
+
+    public Disciplines getDiscipline() {
+        return discipline;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public String getCompetitionName() {
+        return competitionName;
+    }
+    @Override
+    public String getResultTimeFromResult(MillisecondConvertable result) {
+        return getResultTime();
+    }
+    public int calculateResultMinutes(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[0]);
+    }
+    public int calculateResultSeconds(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[1]);
+    }
+    public int calculateResultMillis(String resultTime){
+        String[] timeParts = resultTime.split("[:.]");
+        return Integer.parseInt(timeParts[2]);
+    }
+
+    @Override
+    public int getAgeOfMemberFromResult(MillisecondConvertable result) {
+        return MemberFee.calculateAge(getMember().getDateOfBirth());
+    }
+
+    @Override
+    public Disciplines getDisciplineFromInterface(MillisecondConvertable result) {
+        return getDiscipline();
+    }
+
     @Override
         public String toString() {
             return "Stævne: " +
