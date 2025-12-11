@@ -54,7 +54,7 @@ public class UserInterface {
                     System.out.println("5. Indtast StævneResultat for Junior");
                     System.out.println("6. Indtast StævneResultat for Senior \n");
                     System.out.println("7. Vis alle resultater sorteret\n");
-                    System.out.println("10. Vis Top 5");
+                    System.out.println("8. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
@@ -83,7 +83,7 @@ public class UserInterface {
                            resultManager.printSortedResults();
                         break;
                         case 8:
-
+                             resultManager.printTopFive();
                         default:
                             System.out.println("Ugyldigt Valg!");
 
