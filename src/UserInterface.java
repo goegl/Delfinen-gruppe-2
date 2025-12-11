@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -27,7 +26,7 @@ public class UserInterface {
                     System.out.println("Indtast navn");
                     String name = nameInputValidation();
                     System.out.println("Indtast nummer");
-                    String phone = numberInputValidation();
+                    String phone = phoneNumberInputValidation(inputSC);
                     System.out.println("Indtast adresse");
                     String address = lettersAndNumbersInputValidation();
                     System.out.println("Indtast fødselsdag");
@@ -124,7 +123,7 @@ public class UserInterface {
     private void createSeniorCompResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Seniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(phoneNumberInputValidation(inputSC), memberList.getSeniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
@@ -145,7 +144,7 @@ public class UserInterface {
     private void createJuniorCompResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Stævneresultat for Juniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(phoneNumberInputValidation(inputSC), memberList.getJuniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
@@ -166,7 +165,7 @@ public class UserInterface {
     private void createSeniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Seniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getSeniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(phoneNumberInputValidation(inputSC), memberList.getSeniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
@@ -184,7 +183,7 @@ public class UserInterface {
     private void createJuniorTrainingResult(MemberManager memberList, ResultManager resultManager, FileWriter fileWriter) {
         System.out.println("Træningsresultat for Juniorsvømmer");
         System.out.println("Indtast telefonnummer på svømmeren");
-        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(numberInputValidation(), memberList.getJuniorCompMembers());
+        CompetitiveMember member = memberList.getCompMemberWithPhonenumber(phoneNumberInputValidation(inputSC), memberList.getJuniorCompMembers());
         System.out.println("Vælg disciplin: \n 1. Crawl, 2.Rygcrawl, 3.Brystsvømning, 4.Butterfly");
         Disciplines discipline = typeOfDiscipline();
         System.out.println("Indtast Distance");
@@ -256,7 +255,7 @@ public class UserInterface {
         }
     }
 
-    private String numberInputValidation() {
+    private static String phoneNumberInputValidation(Scanner inputSC) {
         while (true) {
             String input = inputSC.nextLine().trim();
 
