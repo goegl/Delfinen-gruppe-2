@@ -2,12 +2,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class CompetitiveResult implements MillisecondConvertable{
-    CompetitiveMember member;
-    Disciplines discipline;
-    int distance;
-    LocalDate date;
-    String resultTime;
-    String competitionName;
+    private CompetitiveMember member;
+    private Disciplines discipline;
+    private int distance;
+    private LocalDate date;
+    private String resultTime;
+    private String competitionName;
 
     public CompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes, int resultSeconds, int resultMilliseconds, String resultTime ,LocalDate date, String competitionName) {
         this.member = member;

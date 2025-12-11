@@ -110,13 +110,13 @@ public class FileWriter {
 
             } else if (result instanceof CompetitiveResult competitiveResult) {
                 writer.append("Konkurrence").append(",");
-                writer.append(competitiveResult.member.getName()).append(",");
-                writer.append(competitiveResult.member.getPhoneNumber()).append(",");
-                writer.append(competitiveResult.discipline.toString()).append(",");
-                writer.append(String.valueOf(competitiveResult.distance)).append(",");
+                writer.append(competitiveResult.getMember().getName()).append(",");
+                writer.append(competitiveResult.getMember().getPhoneNumber()).append(",");
+                writer.append(competitiveResult.getDiscipline().toString()).append(",");
+                writer.append(String.valueOf(competitiveResult.getDistance())).append(",");
                 writer.append(competitiveResult.getResultTime()).append(",");
-                writer.append(competitiveResult.date.toString()).append(",");
-                writer.append(competitiveResult.competitionName).append("\n");
+                writer.append(competitiveResult.getDate().toString()).append(",");
+                writer.append(competitiveResult.getCompetitionName()).append("\n");
 
             }
 
