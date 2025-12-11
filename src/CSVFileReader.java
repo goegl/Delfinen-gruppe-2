@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,15 +108,35 @@ public class CSVFileReader implements Reader {
         );
     }
 
-//    public class readResultsFromCSV {
-//        public  List<String[]> readResults(String filepath) {
-//            List<String[]> rows =
-//
-//            try {BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
-//
-//            }
-//
-//            }
-//        }
-//    }
+    public List<MillisecondConvertable> readResultsFromCSV(String filepath) {
+        List<MillisecondConvertable> resultList = new ArrayList<>();
+        if (new File("Results.CSV").exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+                String line;
+                reader.lines().skip(1);
+                if ((line = reader.readLine()) != null) {
+                }
+                while ((line = reader.readLine() != null)) {
+                    MillisecondConvertable result = parseResult(line);
+                    resultList.add(result);
+                }
+            } catch (IOException e){
+                throw new RuntimeException(e);
+            }
+        }
+        return resultList;
+    }
+    public MillisecondConvertable parseResult(String line){
+        String[] fields = line.split(",");
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = fields[i].trim();
+        }
+        String type = fields[0];
+        String name = fields[1];
+        String phoneNumber = fields[2];
+        Disciplines disciplin = Disciplines.valueOf(fields[3]);
+        int distance = Integer.parseInt(fields[4]);
+        LocalTime resultTime =
+    }
+
 }
