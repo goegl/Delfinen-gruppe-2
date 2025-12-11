@@ -99,12 +99,12 @@ public class FileWriter {
 
             if (result instanceof TrainingResult trainingResult) {
                 writer.append("Træning").append(",");
-                writer.append(trainingResult.member.getName()).append(",");
-                writer.append(trainingResult.member.getPhoneNumber()).append(",");
-                writer.append(trainingResult.discipline.toString()).append(",");
-                writer.append(String.valueOf(trainingResult.distance)).append(",");
+                writer.append(trainingResult.getMember().getName()).append(",");
+                writer.append(trainingResult.getMember().getPhoneNumber()).append(",");
+                writer.append(trainingResult.getDiscipline().toString()).append(",");
+                writer.append(String.valueOf(trainingResult.getDistance())).append(",");
                 writer.append(trainingResult.getResultTime()).append(",");
-                writer.append(trainingResult.date.toString()).append(",");
+                writer.append(trainingResult.getDate().toString()).append(",");
                 writer.append("Træning").append("\n");
 
 

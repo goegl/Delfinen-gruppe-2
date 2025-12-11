@@ -2,11 +2,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class TrainingResult implements MillisecondConvertable {
-    CompetitiveMember member;
-    Disciplines discipline;
-    int distance;
-    LocalDate date;
-    String resultTime;
+    private CompetitiveMember member;
+    private Disciplines discipline;
+    private int distance;
+    private LocalDate date;
+    private String resultTime;
 
     public TrainingResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes, int resultSeconds, int resultMilliseconds, String resultTime ,LocalDate date) {
         this.member = member;
