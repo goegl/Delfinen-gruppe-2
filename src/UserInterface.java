@@ -10,7 +10,7 @@ public class UserInterface {
         this.inputSC = new Scanner(System.in);
     }
 
-    public void createUI(MemberManager memberList, FileWriter fileWriter, CSVFileReader fileReader, ResultManager resultManager) {
+    public void createUI(MemberManager memberList, FileWriter fileWriter, ResultManager resultManager) {
 
         while (true) {
             System.out.println("1. Opret Medlem\n" +
@@ -35,13 +35,13 @@ public class UserInterface {
                     boolean activeStatus = isActiveStatus();
                     System.out.println("Er du konkurrence svømmer?");
                     typeOfMember(memberList, name, phone, address, dateOfBirth, activeStatus, true, fileWriter);
-                    System.out.println(memberList.toString());
                     break;
 
                 //Oversigt over alle medlemmer i Svømmeklubben
                 case 2:
                     System.out.println("Svømmeklubben Delfinen's Medlemmer: ");
                     memberList.printMemberList();
+                    System.out.println("\n");
                     break;
 
                 //Træner menu

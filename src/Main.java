@@ -16,7 +16,7 @@ public class Main {
         resultManager.addToAllResults(loadedResults);
         resultManager.sortResults(resultManager.getAllResults());
         UserInterface userInterface = new UserInterface();
-        userInterface.createUI(memberManager, fileManager, csvReader, resultManager);
+        userInterface.createUI(memberManager, fileManager, resultManager);
 
     }
 }

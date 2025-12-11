@@ -20,7 +20,7 @@ public class MemberManager {
     public Member createMember(String name, String phoneNumber, String address, LocalDate dateOfBirth, boolean activeStatus) {
         Member member = new Member(name, phoneNumber, address, dateOfBirth, activeStatus);
         members.add(member);
-        System.out.println(member);
+        System.out.println("Medlem: " + member + " er oprettet");
         return member;
     }
 
@@ -28,6 +28,7 @@ public class MemberManager {
         CompetitiveMember competitiveMember = new CompetitiveMember(name, phoneNumber, address, dateOfBirth, activeStatus);
         members.add(competitiveMember);
         addToCompList(competitiveMember);
+        System.out.println("Medlem: " + competitiveMember + "er oprettet");
         return competitiveMember;
     }
 
@@ -36,7 +37,7 @@ public class MemberManager {
         for (Member member : members) {
             System.out.println(member);
         }
-        return "";
+        return " \n";
     }
 
     public void printMembersInRestance() {
