@@ -63,17 +63,16 @@ public class MemberManager {
         seniorCompMembers.addAll(seniorMembersFromFile);
     }
 
-//    Gamle metoder jeg ikke kunne få til at virke i switch. Er erstattet med printCSVFile() metoden i CSVFileReader klassen
-//    public void printJuniorCompLists(){
-//        for(CompetitiveMember member : juniorCompMembers){
-//            System.out.println(member);
-//        }
-//    }
-//    public void printSeniorCompLists(){
-//        for(CompetitiveMember member : seniorCompMembers){
-//            System.out.println(member);
-//        }
-//    }
+    public void printJuniorCompLists(){
+        for(CompetitiveMember member : juniorCompMembers){
+            System.out.println(member);
+        }
+    }
+    public void printSeniorCompLists(){
+        for(CompetitiveMember member : seniorCompMembers){
+            System.out.println(member);
+        }
+    }
 
     public void addToCompList(CompetitiveMember compMember) {
         Period age = Period.between(compMember.getDateOfBirth(), LocalDate.now());

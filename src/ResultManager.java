@@ -37,13 +37,6 @@ public class ResultManager {
         return allResults;
     }
 
-    public void printAllResults() {
-        System.out.println("Alle Resultater: ");
-
-        for (MillisecondConvertable results : allResults) {
-            System.out.println(results);
-        }
-    }
 
     public List<MillisecondConvertable> sortResults(List<MillisecondConvertable> results) {
         Collections.sort(results, new ResultChainedComparator(new ResultDisciplineComparator(), new ResultAgeComparator(), new ResultTimeComparator()));

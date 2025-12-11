@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 
 public class FileWriter {
@@ -70,23 +69,6 @@ public class FileWriter {
         }
     }
 
-    public void writeMemberFeeInfoToCSV(List<Member> members, String filepath) {
-        File file = new File(filepath);
-        boolean fileExists = file.exists();
-
-        try (java.io.FileWriter writer = new java.io.FileWriter(filepath, true)) {
-            if (!fileExists || file.length() == 0) {
-                writer.append("Navn, Telefonnummer, Kontingentsats, Betalingsstatus" + "\n");
-            }
-            for (Member member : members) {
-                writer.append(member.getName()).append(" ,");
-                writer.append(member.getPhoneNumber()).append(" ,");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void writeResultToCSV(MillisecondConvertable result, String filepath) {
         File file = new File(filepath);

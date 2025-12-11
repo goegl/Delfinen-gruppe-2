@@ -60,11 +60,11 @@ public class UserInterface {
                     switch (trainerChoice) {
                         case 1:
                             System.out.println("Delfinen's Junior Hold: ");
-                            fileReader.printCSVFile("JuniorCompetitiveMembers.CSV");
+                            memberList.printJuniorCompLists();
                             break;
                         case 2:
                             System.out.println("Delfinen's Senior Hold: ");
-                            fileReader.printCSVFile("SeniorCompetitiveMembers.CSV");
+                            memberList.printSeniorCompLists();
                             break;
                         case 3:
                             createJuniorTrainingResult(memberList, resultManager, fileWriter);
