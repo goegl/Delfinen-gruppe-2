@@ -233,7 +233,6 @@ public class UserInterface {
                 return Disciplines.BUTTERFLY;
             } else
                 System.out.println("Der skal indtastes et tal 1-4");
-            continue;
         }
     }
 
