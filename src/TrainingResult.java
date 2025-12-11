@@ -26,7 +26,7 @@ public class TrainingResult implements MillisecondConvertable {
     }
 
     public String toString() {
-        return  "Trænings Resultat : " +
+        return  "Træning: " +
                 "Svømmer: " + member.getName() + "," +
                 "Disciplin: " + discipline + "," +
                 "Tid: " + resultTime + "," +

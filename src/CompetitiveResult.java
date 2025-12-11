@@ -29,7 +29,7 @@ public class CompetitiveResult implements MillisecondConvertable{
 
     @Override
         public String toString() {
-            return "Trænings Resultat : " +
+            return "Stævne: " +
                     "Svømmer: " + member.getName() + "," +
                     "Disciplin: " + discipline + "," +
                     "Tid: " + resultTime + "," +
