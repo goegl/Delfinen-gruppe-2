@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import Member.CompetitiveMember;
 
 public class ResultManager {
     private List<MillisecondConvertable> allResults;

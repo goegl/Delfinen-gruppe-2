@@ -1,5 +1,8 @@
+import Member.Member;
 import java.io.File;
 import java.io.IOException;
+import Member.CompetitiveMember;
+import Member.*;
 
 
 public class FileWriter {

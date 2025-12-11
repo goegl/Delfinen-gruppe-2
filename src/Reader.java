@@ -1,3 +1,5 @@
+import Member.Member;
+
 import java.util.List;
 
 public interface Reader {

@@ -1,6 +1,7 @@
 import MemberFee.MemberFee;
-
+import Member.CompetitiveMember;
 import java.time.LocalDate;
+import Member.*;
 
 public class CompetitiveResult implements MillisecondConvertable{
     private CompetitiveMember member;
@@ -10,7 +11,7 @@ public class CompetitiveResult implements MillisecondConvertable{
     private String resultTime;
     private String competitionName;
 
-    public CompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes, int resultSeconds, int resultMilliseconds, String resultTime ,LocalDate date, String competitionName) {
+    public CompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance, int resultMinutes, int resultSeconds, int resultMilliseconds, String resultTime , LocalDate date, String competitionName) {
         this.member = member;
         this.discipline = discipline;
         this.distance = distance;

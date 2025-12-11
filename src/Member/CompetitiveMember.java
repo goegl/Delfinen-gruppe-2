@@ -1,3 +1,5 @@
+package Member;
+
 import java.time.LocalDate;
 
 public class CompetitiveMember extends Member {

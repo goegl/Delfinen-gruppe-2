@@ -1,3 +1,5 @@
+package Member;
+
 import MemberFee.MemberFee;
 
 import java.time.LocalDate;

@@ -1,4 +1,5 @@
-import MemberFee.MemberFee;
+package MemberFee;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
