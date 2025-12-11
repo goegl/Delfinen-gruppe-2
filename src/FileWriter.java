@@ -105,7 +105,7 @@ public class FileWriter {
                 writer.append(String.valueOf(trainingResult.distance)).append(",");
                 writer.append(trainingResult.getResultTime()).append(",");
                 writer.append(trainingResult.date.toString()).append(",");
-                writer.append("");
+                writer.append("Træning");
                 writer.append("\n");
 
             } else if (result instanceof CompetitiveResult competitiveResult) {

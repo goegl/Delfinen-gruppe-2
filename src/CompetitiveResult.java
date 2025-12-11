@@ -14,6 +14,7 @@ public class CompetitiveResult implements MillisecondConvertable{
         this.discipline = discipline;
         this.distance = distance;
         this.resultTime = String.format("%02d:%02d:%03d", resultMinutes, resultSeconds, resultMilliseconds);
+        this.date = date;
         this.competitionName = competitionName;
     }
 

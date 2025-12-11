@@ -108,35 +108,41 @@ public class CSVFileReader implements Reader {
         );
     }
 
-//    public List<MillisecondConvertable> readResultsFromCSV(String filepath) {
-//        List<MillisecondConvertable> resultList = new ArrayList<>();
-//        if (new File("Results.CSV").exists()) {
-//            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
-//                String line;
-//                reader.lines().skip(1);
-//                if ((line = reader.readLine()) != null) {
-//                }
-//                while ((line = reader.readLine() != null)) {
-//                    MillisecondConvertable result = parseResult(line);
-//                    resultList.add(result);
-//                }
-//            } catch (IOException e){
-//                throw new RuntimeException(e);
-//            }
-//        }
-//        return resultList;
-//    }
-//    public MillisecondConvertable parseResult(String line){
-//        String[] fields = line.split(",");
-//        for (int i = 0; i < fields.length; i++) {
-//            fields[i] = fields[i].trim();
-//        }
-//        String type = fields[0];
-//        String name = fields[1];
-//        String phoneNumber = fields[2];
-//        Disciplines disciplin = Disciplines.valueOf(fields[3]);
-//        int distance = Integer.parseInt(fields[4]);
-//        LocalTime resultTime =
-//    }
+    public List<MillisecondConvertable> readResultsFromCSV(String filepath, MemberManager memberManager) {
+        List<MillisecondConvertable> resultList = new ArrayList<>();
+        if (new File("Results.CSV").exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+                String line;
+                reader.lines().skip(1);
+                if ((line = reader.readLine()) != null) {
+                }
+                while ((line = reader.readLine()) != null) {
+                    MillisecondConvertable result = parseResult(line, memberManager);
+                    resultList.add(result);
+                }
+            } catch (IOException e){
+                throw new RuntimeException(e);
+            }
+        }
+        return resultList;
+    }
+    public MillisecondConvertable parseResult(String line, MemberManager memberManager){
+        String[] fields = line.split(",");
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = fields[i].trim();
+        }
+
+        String phoneNumber = fields[2];
+        Disciplines disciplin = Disciplines.valueOf(fields[3]);
+        int distance = Integer.parseInt(fields[4]);
+        String resultTime = fields[5];
+        LocalDate date = LocalDate.parse(fields[6]);
+        String competitionName = fields [7];
+        return new CompetitiveResult(memberManager.getCompMemberWithPhonenumber(phoneNumber, (List<CompetitiveMember>) memberManager)),
+        disciplin,
+        distance,
+
+
+    }
 
 }
