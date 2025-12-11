@@ -50,8 +50,8 @@ public class Member {
 
     public String activeStatusToString(boolean activeStatus) {
         if (activeStatus == true) {
-            return "true";
-        } else return "false";
+            return "Er Aktiv";
+        } else return "Er Ikke Aktiv";
     }
 
     public LocalDate getDateOfBirth() {
@@ -76,7 +76,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatus;
+        return String.valueOf(getMemberFee()) + "KR " + " " + name + " " + activeStatusToString(activeStatus);
     }
 
     public void setIsPaid(boolean paid) {

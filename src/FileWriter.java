@@ -16,8 +16,8 @@ public class FileWriter {
             writer.append(member.getName()).append(",");
             writer.append(member.getPhoneNumber()).append(",");
             writer.append(member.getAddress()).append(",");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append(",");
-            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
+            writer.append(String.valueOf(member.getActiveStatus())).append(",");
+            writer.append((String.valueOf((member.getDateOfBirth())))).append(",");
             writer.append(String.valueOf(member.isPaid())).append(",");
             writer.append(member.membershipStartToString(member.getMembershipStart())).append("\n");
 
@@ -40,8 +40,8 @@ public class FileWriter {
             writer.append(member.getName()).append(",");
             writer.append(member.getPhoneNumber()).append(",");
             writer.append(member.getAddress()).append(",");
-            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
+            writer.append((String.valueOf((member.getDateOfBirth())))).append(",");
+            writer.append(String.valueOf(member.getActiveStatus())).append("\n");
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
         } catch (IOException e) {
@@ -60,8 +60,8 @@ public class FileWriter {
             writer.append(member.getName()).append(",");
             writer.append(member.getPhoneNumber()).append(",");
             writer.append(member.getAddress()).append(",");
-            writer.append((member.dateOfBirthToString(member.getDateOfBirth()))).append(",");
-            writer.append(member.activeStatusToString(member.getActiveStatus())).append("\n");
+            writer.append((String.valueOf(member.getDateOfBirth()))).append(",");
+            writer.append(String.valueOf(member.getActiveStatus())).append("\n");
             writer.close();
             System.out.println("CSV fil skrevet til " + filepath);
         } catch (IOException e) {
