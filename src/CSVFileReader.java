@@ -136,11 +136,20 @@ public class CSVFileReader implements Reader {
         Disciplines disciplin = Disciplines.valueOf(fields[3]);
         int distance = Integer.parseInt(fields[4]);
         String resultTime = fields[5];
+        int minutes = Integer.parseInt(resultTime.substring(0, 1));
+        int seconds = Integer.parseInt(resultTime.substring(3, 4));
+        int millis = Integer.parseInt(resultTime.substring(6, 8));
         LocalDate date = LocalDate.parse(fields[6]);
         String competitionName = fields [7];
-        return new CompetitiveResult(memberManager.getCompMemberWithPhonenumber(phoneNumber, (List<CompetitiveMember>) memberManager)),
+        return new CompetitiveResult(memberManager.getCompMemberWithPhonenumber(phoneNumber, (List<CompetitiveMember>) memberManager),
         disciplin,
         distance,
+        minutes,
+        seconds,
+        millis,
+        resultTime,
+        date,
+        competitionName);
 
 
     }

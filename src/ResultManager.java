@@ -23,6 +23,9 @@ public class ResultManager {
         fileWriter.writeResultToCSV(trainingResult, "Results.CSV");
         return trainingResult;
     }
+    public void addResults(List<MillisecondConvertable> resultsFromFile) {
+        allResults.addAll(resultsFromFile);
+    }
 
     public CompetitiveResult createCompetitiveResult(CompetitiveMember member, Disciplines discipline, int distance
             , int resultMinutes, int resultSeconds, int resultMilliseconds,
