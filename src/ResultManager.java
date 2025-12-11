@@ -45,7 +45,15 @@ public class ResultManager {
         }
     }
 
-    public void sortResults(List<MillisecondConvertable> results){
+    public List<MillisecondConvertable> sortResults(List<MillisecondConvertable> results){
         Collections.sort(results, new ResultChainedComparator(new ResultDisciplineComparator(), new ResultAgeComparator(), new ResultTimeComparator()));
+        return results;
+    }
+    public void printSortedResults(){
+        System.out.println(sortResults(allResults).toString());
+
+    }
+    public void printTopFive(){
+        if()
     }
 }
