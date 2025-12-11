@@ -54,9 +54,10 @@ public class UserInterface {
                     System.out.println("5. Indtast StævneResultat for Junior");
                     System.out.println("6. Indtast StævneResultat for Senior \n");
                     System.out.println("7. Vis Resultater");
+                    //Bliver ikke brugt endnu ;D
                     System.out.println("8. Vis Trænings Resultater");
                     System.out.println("9. Vis Konkurrence Resultater\n");
-                    System.out.println("9. Vis Top 5");
+                    System.out.println("10. Vis Top 5");
 
                     int trainerChoice = inputSC.nextInt();
                     inputSC.nextLine();
@@ -82,7 +83,6 @@ public class UserInterface {
                             createSeniorCompResult(memberList, resultManager, fileWriter);
                             break;
                         case 7:
-                            System.out.println("Træningsresultater: \n");
                             fileReader.printCSVFile("Results.CSV");
                             break;
                         default:

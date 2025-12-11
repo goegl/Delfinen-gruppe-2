@@ -35,7 +35,7 @@ public class ResultManager {
     }
 
     public void printTrainingResults() {
-        System.out.println("Trænings Resultater: \n " + trainingResults);
+        System.out.println("Trænings Resultater: \n ");
 
         for (TrainingResult trainingResult : trainingResults) {
             System.out.println(trainingResult);
@@ -43,7 +43,7 @@ public class ResultManager {
     }
 
     public void printCompResults() {
-        System.out.println("Konkurrence Resultater: \n" + competitiveResults);
+        System.out.println("Konkurrence Resultater: \n");
 
         for (CompetitiveResult competitiveResult : competitiveResults) {
             System.out.println(competitiveResult);
