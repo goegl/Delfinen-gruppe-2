@@ -14,6 +14,7 @@ public class Main {
         memberManager.addSeniorCompetitiveMembers(loadedSeniorCompMembers);
         List<MillisecondConvertable> loadedResults = csvReader.readResultsFromCSV("Results.CSV", memberManager);
         resultManager.addToAllResults(loadedResults);
+        System.out.println(loadedResults.toString());
         UserInterface userInterface = new UserInterface();
         userInterface.createUI(memberManager, fileManager, csvReader, resultManager);
 

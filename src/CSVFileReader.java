@@ -140,9 +140,10 @@ public class CSVFileReader implements Reader {
             Disciplines disciplin = Disciplines.valueOf(fields[3]);
             int distance = Integer.parseInt(fields[4]);
             String resultTime = fields[5];
-            int minutes = Integer.parseInt(resultTime.substring(0, 1));
-            int seconds = Integer.parseInt(resultTime.substring(3, 4));
-            int millis = Integer.parseInt(resultTime.substring(6, 8));
+            String[] timeParts =resultTime.split("[:.]");
+            int minutes = Integer.parseInt(timeParts[0]);
+            int seconds = Integer.parseInt(timeParts[1]);
+            int millis = Integer.parseInt(timeParts[2]);
             LocalDate date = LocalDate.parse(fields[6]);
 
             return new TrainingResult(member,
@@ -157,9 +158,10 @@ public class CSVFileReader implements Reader {
             Disciplines disciplin = Disciplines.valueOf(fields[3]);
             int distance = Integer.parseInt(fields[4]);
             String resultTime = fields[5];
-            int minutes = Integer.parseInt(resultTime.substring(0, 1));
-            int seconds = Integer.parseInt(resultTime.substring(3, 4));
-            int millis = Integer.parseInt(resultTime.substring(6, 8));
+            String[] timeParts =resultTime.split("[:.]");
+            int minutes = Integer.parseInt(timeParts[0]);
+            int seconds = Integer.parseInt(timeParts[1]);
+            int millis = Integer.parseInt(timeParts[2]);
             LocalDate date = LocalDate.parse(fields[6]);
             String competitionName = fields[7];
             return new CompetitiveResult(member,
