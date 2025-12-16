@@ -42,7 +42,7 @@ public class ResultManager {
 
 
     public List<MillisecondConvertable> sortResults(List<MillisecondConvertable> results) {
-        Collections.sort(results, new ResultChainedComparator(new ResultTimeComparator(), new ResultDisciplineComparator(), new ResultAgeComparator()));
+        Collections.sort(results, new ResultChainedComparator(new ResultDisciplineComparator(),new ResultTimeComparator(), new ResultAgeComparator()));
         return results;
     }
 
